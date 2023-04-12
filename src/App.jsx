@@ -10,7 +10,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='LandingPage__Container flex flex-col gap-2 p-12 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900 min-h-screen w-screen'>
+      <div className='LandingPage__Container flex flex-col gap-2 p-12 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900 min-h-screen'>
         <NavBar/>
         <Routes>
             <Route path='/' element={<ItemListContainer/>}/>

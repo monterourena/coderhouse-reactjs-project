@@ -22,7 +22,9 @@ function ItemDetailContainer() {
   },[])
 
   return (
-    <ItemDetail product={product}/>
+    <div className='ItemDetailContainer text-xl flex justify-center items-center bg-white rounded-[16px] px-32 py-16'>
+      <ItemDetail product={product}/>
+    </div>
   )
 }
 
