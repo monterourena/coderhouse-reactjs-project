@@ -19,7 +19,7 @@ export const NavBar = () => {
       <div className="NavBar_Categories w-72 flex justify-around">
         
         <Link className="NavBar_Categories--Link hover:text-primary" to="/category/electronics">Electronics</Link>
-        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/jewelery">Jewelery</Link>
+        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/jewelery">Jewelry</Link>
         <Link className="NavBar_Categories--Link hover:text-primary" to="/category/men's clothing">Men</Link>
         <Link className="NavBar_Categories--Link hover:text-primary" to="/category/women's clothing">Women</Link>
         
