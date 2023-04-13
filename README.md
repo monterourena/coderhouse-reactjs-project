@@ -25,7 +25,8 @@ The routes used were defined as follows.
 In the attached GIF you can see the resulting navigation.
 
 
-![routing](https://user-images.githubusercontent.com/117543842/231364881-f89d0c59-a22a-49bf-b2cb-97fb760d29ed.gif)
+![routing](https://user-images.githubusercontent.com/117543842/231381792-c57c2248-5d25-408b-af78-38f8f30d84f1.gif)
+
 
 
 ## Technologies and tools:
