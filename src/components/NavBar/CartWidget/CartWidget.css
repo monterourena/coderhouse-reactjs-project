@@ -1,0 +1,30 @@
+.CartWidgetContainer{
+    position: relative;
+}
+
+.CartWidgetIcon{
+    height: 20px;
+}
+
+.CartWidgetIcon--light{
+    filter: invert(100%) ;
+}
+.CartWidgetIcon--dark{
+    filter: invert(0%) ;
+}
+
+.CartWidgetNumber{
+    position: absolute;
+    width: 16px;
+    top: 8px;
+    right: -1px;
+    font-size: 8px;
+    text-align: center;
+}
+.CartWidgetNumber--light{
+    color: #ffffff;
+}
+
+.CartWidgetNumber--dark{
+    color: #000000;
+}

@@ -1,0 +1,57 @@
+.NavbarContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    background-color: aqua;
+    padding: 0px 48px;
+    position: fixed;
+    top: 0px;
+}
+
+.NavbarContainer--dark{
+    background: rgba(44, 44, 46, 0.6);
+    backdrop-filter: blur(13.59px);
+}
+
+.NavbarContainer--light{
+    background: rgba(116, 116, 128, 0.18);
+    backdrop-filter: blur(13.59px);
+}
+
+.NavbarIcon_Container{
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.LogoVector{
+    height: 16px;
+}
+.LogoVector--dark{
+    filter: invert(0%) ;
+}
+.LogoVector--light{
+    filter: invert(100%) ;
+}
+
+.NavbarCategories{
+    gap: 24px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+.NavbarCategoryItem--light{
+    color: #000000;
+}
+
+.NavbarCategoryItem--dark{
+    color: #ffffff;
+}
+
+.NavbarCategoryItem:hover{
+    color: #a5a5a5;
+}
