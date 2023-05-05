@@ -9,6 +9,7 @@
     padding: 0px 48px;
     position: fixed;
     top: 0px;
+    z-index: 1;
 }
 
 .NavbarContainer--dark{

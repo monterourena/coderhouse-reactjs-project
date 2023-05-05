@@ -29,9 +29,7 @@ function FeaturedProductTemplate(content) {
         </div>
       </div>
       <div className="HeroPicture">
-        <div className="HeroPictureContainer">
-          <img src={content.picture} alt="featured content image" />
-        </div>
+        <img className="HeroPictureContainer"src={content.picture} alt="featured content image" />
       </div>
     </div>
   );

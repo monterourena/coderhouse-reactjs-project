@@ -4,6 +4,9 @@
   min-width: 346px;
   border-radius: 16px;
   padding-top: 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   
 }
 

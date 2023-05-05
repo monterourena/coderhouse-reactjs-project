@@ -1,5 +1,8 @@
 .Hero {
     padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .Hero--light {
@@ -71,4 +74,13 @@
     display: flex;
     justify-content: center;
     padding: 0px 32px;
+}
+
+.HeroPicture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HeroPictureContainer{
+  max-height: 400px;
 }
