@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarTemplate from "./NavbarTemplate.jsx";
-import CartWidget from "./CartWidget/CartWidget.jsx";
+import CartWidget from "../CartWidget/CartWidget.jsx";
 
 function Navbar() {
 

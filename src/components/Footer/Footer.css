@@ -1,15 +1,15 @@
 .Footer{
     margin-top: 32px;
+    height: 244px;
     padding: 32px;
     background-color: #F5F5F7;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 244px;
 }
 .FooterDivider{
-    width: 90%;
+    width: 100%;
     border-top: 1px solid #cfcfcf;
     padding-top: 30px;
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import "../Navbar.css"
 import "./CartWidget.css"
 
 const CartWidget = ({iconPath, itemCount, theme}) => {
