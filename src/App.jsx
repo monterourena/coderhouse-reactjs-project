@@ -16,6 +16,7 @@ function App() {
             <Route path='/' element={<HomeScreen/>}/>
             <Route path='/category/:id' element={<CategoryScreen/>}/>
             <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<CategoryScreen/>}/>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

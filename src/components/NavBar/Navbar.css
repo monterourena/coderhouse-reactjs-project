@@ -1,7 +1,7 @@
 .NavbarContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 44px;
     width: 100%;
@@ -38,8 +38,8 @@
     filter: invert(100%) ;
 }
 
-.NavbarCategories{
-    gap: 24px;
+.NavbarItems{
+    gap: 48px;
     display: flex;
     justify-content: space-around;
     font-size: 12px;

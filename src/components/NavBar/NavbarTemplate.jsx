@@ -2,11 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-
-function NavbarTemplate({logoIconPath, theme, categories, children}) {
+function NavbarTemplate({ logoIconPath, theme, categories, children }) {
   return (
     <div className={`NavbarContainer NavbarContainer--${theme}`}>
-      <div className="NavbarLogo">
+      <div className="NavbarItems">
         <Link to="/">
           <div className="NavbarIcon_Container">
             <img
@@ -15,9 +14,6 @@ function NavbarTemplate({logoIconPath, theme, categories, children}) {
             />
           </div>
         </Link>
-      </div>
-
-      <div className="NavbarCategories">
         {categories.map((category) => (
           <Link
             key={category.path}
@@ -27,14 +23,12 @@ function NavbarTemplate({logoIconPath, theme, categories, children}) {
             {category.name}
           </Link>
         ))}
+        <Link to="/cart">
+          <div className="NavbarIcon_Container">{children}</div>
+        </Link>
       </div>
-
-      <div className="NavbarIcon_Container">
-        {children}
-      </div>
-
     </div>
-  )
+  );
 }
 
-export default NavbarTemplate
+export default NavbarTemplate;
