@@ -1,12 +1,12 @@
 import React from "react";
 import "./ProductCard.css";
 
-function ProductCard({ product }) {
+function ProductCard({ product, theme }) {
   return (
-    <div className="Card">
+    <div className={`Card Card--${theme}`}>
       <div className="ContentContainer">
-        <div className="Content--Title">{product.title}</div>
-        <div className="Content--Description">{product.description}</div>
+        <div className={`ContentTitle ContentTitle--${theme}`}>{product.title}</div>
+        <div className={`ContentDescription ContentDescription--${theme}`}>{product.description}</div>
       </div>
       <div className="ContentContainer">
         <div className="PictureContainer">

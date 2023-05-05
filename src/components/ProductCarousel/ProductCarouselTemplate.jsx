@@ -1,12 +1,12 @@
 import React from 'react'
 import "./ProductCarousel.css"
 
-function ProductCarouselTemplate({children}) {
+function ProductCarouselTemplate({children, theme}) {
   const sectionTitle = "The latest. Take a look at what's new, right now."
   return (
-    <div className='ProductCarousel'>
-      <div className='SectionTitle'>{sectionTitle}</div>
-      <div className='SliderContainer'>{children}</div>
+    <div className={`ProductCarousel ProductCarousel--${theme}`}>
+      <div className={`SectionTitle SectionTitle--${theme}`}>{sectionTitle}</div>
+      <div className={`SliderContainer SliderContainer--${theme}`}>{children}</div>
     </div>
   )
 }
