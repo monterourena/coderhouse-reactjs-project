@@ -14,15 +14,17 @@ function NavbarTemplate({ logoIconPath, theme, categories, children }) {
             />
           </div>
         </Link>
-        {categories.map((category) => (
-          <Link
-            key={category.path}
-            className={`NavbarCategoryItem NavbarCategoryItem--${theme}`}
-            to={`/category/${category.path}`}
-          >
-            {category.name}
-          </Link>
-        ))}
+        <div className="NavbarCategoriesContainer">
+          {categories.map((category) => (
+            <Link
+              key={category.path}
+              className={`NavbarCategoryItem NavbarCategoryItem--${theme}`}
+              to={`/category/${category.path}`}
+            >
+              {category.name}
+            </Link>
+          ))}
+        </div>
         <Link to="/cart">
           <div className="NavbarIcon_Container">{children}</div>
         </Link>

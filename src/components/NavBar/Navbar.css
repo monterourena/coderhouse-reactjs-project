@@ -44,6 +44,12 @@
     justify-content: space-around;
     font-size: 12px;
 }
+.NavbarCategoriesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
 
 .NavbarCategoryItem--light{
     color: #000000;

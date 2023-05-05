@@ -1,0 +1,28 @@
+.TileCard{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 62px;
+    max-height: 480px;
+}
+
+.TileCard--light{
+    background-color: #F5F5F7;
+}
+.TileCard--dark{
+    background-color: #1A1A1C;
+}
+
+.TilePictureContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TilePicture{
+   width: 80%;
+   max-width: 800px;
+   max-height: 242px;
+}

@@ -1,0 +1,87 @@
+.ContentCTA {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 16px;
+}
+
+.Title--light,
+.Phrase--light {
+  color: #000000;
+}
+.Title--dark,
+.Phrase--dark {
+  color: #ffffff;
+}
+
+.Title--featured {
+  font-weight: 590;
+  font-size: 56px;
+  line-height: 67px;
+  text-align: center;
+}
+
+.Title--tile {
+  font-weight: 590;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.Phrase--featured {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+}
+.Phrase--tile {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.CtaContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.CtaLink{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.CtaLink--Text--featured,
+.CtaLink--Text--tile {
+  color: #007aff;
+}
+
+.CtaLink--Text--featured,
+.CtaLink--Text--tile {
+  font-weight: 400;
+}
+
+.CtaLink--Text--featured {
+  font-size: 21px;
+  line-height: 25px;
+}
+.CtaLink--Text--tile {
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.CtaLink--Icon--featured,
+.CtaLink--Icon--tile {
+  filter: invert(43%) sepia(56%) saturate(7181%) hue-rotate(200deg)
+    brightness(102%) contrast(105%);
+}
+.CtaLink--Icon--featured {
+  height: 16px;
+}
+.CtaLink--Icon--tile {
+  height: 14px;
+}

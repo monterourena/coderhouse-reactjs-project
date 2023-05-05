@@ -10,7 +10,7 @@ function ProductCard({ product, theme }) {
       </div>
       <div className="ContentContainer">
         <div className="PictureContainer">
-          <img src={product.picture} alt="" />
+          <img className="Picture" src={product.picture} alt="" />
         </div>
         <div className="Price">{`From $${product.price}`}</div>
       </div>

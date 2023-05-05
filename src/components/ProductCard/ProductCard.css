@@ -69,6 +69,11 @@
   align-items: center;
 }
 
+.Picture{
+  max-width: 200px;
+  object-fit: cover;
+}
+
 .Price {
   font-weight: 590;
   font-size: 16px;

@@ -1,8 +1,9 @@
 import React from "react";
-import FeaturedProductTemplate from "./FeaturedProductTemplate.jsx";
-import ContentCTA from "../ContentCTA/ContentCTA.jsx";
+import "./TileCard.css";
+import TileCardTemplate from "./TileCardTemplate";
+import ContentCTA from "../ContentCTA/ContentCTA";
 
-function FeaturedProduct(props) {
+function TileCard(props) {
   const {
     theme,
     title,
@@ -13,9 +14,8 @@ function FeaturedProduct(props) {
     secondaryCtaViewPath,
     picture,
   } = props;
-
   return (
-    <FeaturedProductTemplate theme={theme} picture={picture}>
+    <TileCardTemplate theme={theme} picture={picture}>
       <ContentCTA
         theme={theme}
         title={title}
@@ -24,15 +24,11 @@ function FeaturedProduct(props) {
         primaryCtaViewPath={primaryCtaViewPath}
         secondaryCtaText={secondaryCtaText}
         secondaryCtaViewPath={secondaryCtaViewPath}
-        type={"featured"}
-        LinksEnabled = {true}
+        type={"tile"}
+        LinksEnabled={true}
       />
-    </FeaturedProductTemplate>
+    </TileCardTemplate>
   );
 }
 
-FeaturedProduct.defaultProps = {
-  theme: "dark",
-};
-
-export default FeaturedProduct;
+export default TileCard;
