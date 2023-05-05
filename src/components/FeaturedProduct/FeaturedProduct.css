@@ -1,0 +1,74 @@
+.Hero {
+    padding-top: 80px;
+}
+
+.Hero--light {
+  background-color: #ffffff;
+}
+
+.Hero--dark {
+  background-color: #000000;
+}
+
+.HeroContent{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 16px;
+}
+
+.Title {
+  font-weight: 590;
+  font-size: 56px;
+  line-height: 67px;
+  text-align: center;
+}
+.Title--light,
+.Phrase--light {
+  color: #000000;
+}
+.Title--dark,
+.Phrase--dark {
+  color: #ffffff;
+}
+
+.Phrase {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+}
+
+.CtaLink--Text {
+  color: #007aff;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+}
+.CtaLink--Icon {
+  height: 16px;
+  filter: invert(43%) sepia(56%) saturate(7181%) hue-rotate(200deg)
+    brightness(102%) contrast(105%);
+}
+
+
+.CtaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.CtaLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.HeroPictureContainer{
+    display: flex;
+    justify-content: center;
+    padding: 0px 32px;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer'
 
-function Home() {
+function CategoryScreen() {
   return (
     <ItemListContainer/>
   )
 }
 
-export default Home
+export default CategoryScreen

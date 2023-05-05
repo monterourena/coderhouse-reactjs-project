@@ -1,0 +1,39 @@
+.ProductCarousel {
+  padding: 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.SectionTitle {
+  font-weight: 590;
+  font-size: 40px;
+  line-height: 48px;
+}
+.SliderContainer {
+  display: flex;
+  gap: 32px;
+  overflow-x: scroll;
+  padding-bottom: 32px;
+}
+
+/* width */
+.SliderContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+.SliderContainer::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+.SliderContainer::-webkit-scrollbar-thumb {
+  background: #F5F5F7;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.SliderContainer::-webkit-scrollbar-thumb:hover {
+  background: #e4e4e4;
+}

@@ -5,7 +5,7 @@ import CartWidget from "./CartWidget/CartWidget.jsx";
 function Navbar() {
 
   const itemCount = 78;
-  const theme = "light";
+  const theme = "dark";
   const categories = [
     { name: "Electronics", path: "electronics" },
     { name: "Jewelry", path: "jewelery" },
