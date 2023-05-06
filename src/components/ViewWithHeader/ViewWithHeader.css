@@ -1,0 +1,24 @@
+.ViewWithHeader{
+    padding: 76px 32px 0px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ViewWithHeader--Header{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.Header--Title{
+    font-weight: 590;
+font-size: 32px;
+line-height: 38px;
+
+}
+
+.Header--Description{
+    font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+}

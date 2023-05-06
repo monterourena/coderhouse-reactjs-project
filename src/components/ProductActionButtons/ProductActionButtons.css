@@ -1,0 +1,45 @@
+.ProductActionButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.DefaultState, .ActivatedState{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 100%;
+    gap: 32px;
+}
+
+.ItemCounter{
+    display: flex;
+    justify-content: space-between;
+    width: 144px;
+}
+
+.ActionButton, .ItemCounterButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+}
+.ActionButton{
+    width: 144px;
+    height: 40px;
+    border-radius: 14px;
+}
+.ItemCounterButton{
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+}
+
+.ActionButton--Primary, .ItemCounterButton--Primary{
+    background: #0A84FF;
+}
+
+.ActionButton--Secondary, .ItemCounterButton--Secondary{
+    background: #8E8E93;
+}
+
+

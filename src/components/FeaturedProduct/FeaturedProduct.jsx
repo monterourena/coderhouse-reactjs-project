@@ -12,6 +12,7 @@ function FeaturedProduct(props) {
     secondaryCtaText,
     secondaryCtaViewPath,
     picture,
+    linksEnabled
   } = props;
 
   return (
@@ -25,7 +26,7 @@ function FeaturedProduct(props) {
         secondaryCtaText={secondaryCtaText}
         secondaryCtaViewPath={secondaryCtaViewPath}
         type={"featured"}
-        LinksEnabled = {true}
+        linksEnabled = {linksEnabled}
       />
     </FeaturedProductTemplate>
   );

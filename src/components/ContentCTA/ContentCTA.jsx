@@ -14,7 +14,7 @@ function ContentCTA(content) {
           {content.phrase}
         </p>
       </div>
-      { !!content.LinksEnabled &&
+      { !!content.linksEnabled &&
         <div className="CtaContainer">
           <Link
             className="CtaLink"
@@ -53,8 +53,10 @@ function ContentCTA(content) {
 ContentCTA.defaultProps = {
   theme: "dark",
   primaryCtaText: "Learn more",
+  primaryCtaViewPath:"/",
   secondaryCtaText: "Buy",
-  LinksEnabled: true
+  secondaryCtaViewPath:"/",
+  linksEnabled: true
 };
 
 export default ContentCTA;

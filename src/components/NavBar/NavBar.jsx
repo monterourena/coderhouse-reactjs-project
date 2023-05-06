@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import NavbarTemplate from "./NavbarTemplate.jsx";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 
 function Navbar() {
 
   const itemCount = 78;
-  const theme = "dark";
+  const theme = "dark"
   const categories = [
     { name: "Electronics", path: "electronics" },
     { name: "Jewelry", path: "jewelery" },
