@@ -3,7 +3,7 @@ import "./ProductDetails.css";
 import ProductActionButtons from "../ProductActionButtons/ProductActionButtons";
 
 function ProductDetails({ product }) {
-  const selectedPrice = "1999";
+  const subTotalPrice = "1999";
   const currencySymbol = product.currency.symbol;
 
   return (
@@ -30,7 +30,7 @@ function ProductDetails({ product }) {
         </div>
         <div className="SidePanel--TotalDetails">
           <p className="TotalDetails--SubtotalTitle">Subtotal</p>
-          <p className="TotalDetails--SubtotalValue">{`${product.currency.symbol}${selectedPrice}`}</p>
+          <p className="TotalDetails--SubtotalValue">{`${currencySymbol}${subTotalPrice}`}</p>
         </div>
         {/* ESTO SE TIENE QUE REEMPLAZAR POR UN COMPONENTE */}
         <ProductActionButtons/>
