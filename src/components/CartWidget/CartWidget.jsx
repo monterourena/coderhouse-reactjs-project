@@ -1,21 +1,22 @@
 import React from "react";
+import "./CartWidget.css"
 
-const Cartwidget = () => {
+const CartWidget = ({iconPath, itemCount, theme}) => {
+
+  
+
   return (
-    <div>
-      {" "}
-      <div className="CartWidget__Container relative">
+      <div className="CartWidgetContainer relative">
         <img
-          className="CartWidget__ h-[30px]"
-          src="../../../cart-icon.svg"
+          className={`CartWidgetIcon CartWidgetIcon--${theme}`}
+          src={iconPath}
           alt="ViteLogo"
         />
-        <div className="CartWidget__Number text-[12px] absolute top-0 right-[7px] font-bold text-primary">
-          8
+        <div className={`CartWidgetNumber CartWidgetNumber--${theme}`}>
+          {itemCount}
         </div>
       </div>
-    </div>
   );
 };
 
-export default Cartwidget;
+export default CartWidget;

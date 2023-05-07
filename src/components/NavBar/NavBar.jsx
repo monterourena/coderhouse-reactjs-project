@@ -1,33 +1,29 @@
-import React from "react";
-import Cartwidget from "../CartWidget/CartWidget"
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import NavbarTemplate from "./NavbarTemplate.jsx";
+import CartWidget from "../CartWidget/CartWidget.jsx";
 
+function Navbar() {
 
-export const NavBar = () => {
+  const itemCount = 78;
+  const theme = "dark"
+  const categories = [
+    { name: "Electronics", path: "electronics" },
+    { name: "Jewelry", path: "jewelery" },
+    { name: "Men", path: "men's clothing" },
+    { name: "Women", path: "women's clothing" },
+  ];
+
+  const logoIconPath = "../../../logo/apple.svg";
+
+  const cartEmptyIconPath = "../../../../icons/cart-empty.svg"
+  const cartFullIconPath = "../../../../icons/cart-full.svg"
+  const cartIconPath = !!itemCount ? cartFullIconPath : cartEmptyIconPath ;
+
   return (
-    <div
-      className="NavBar_Container 
-      flex flex-row items-center justify-between
-      h-[48px] px-8 rounded-[16px] bg-background">
+    <NavbarTemplate logoIconPath={logoIconPath} theme={theme} categories={categories}>
+      <CartWidget theme={theme} itemCount={itemCount} iconPath={cartIconPath}/>
+    </NavbarTemplate>
+  )
+}
 
-      <Link to="/">
-        <div className="NavBar_Brand w-24 flex flex-row items-center justify-start gap-2">
-          <img className="Brand_Icon " src="../../../logo.svg" alt="ViteLogo" />
-        </div>
-      </Link>
-
-      <div className="NavBar_Categories w-72 flex justify-around">
-        
-        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/electronics">Electronics</Link>
-        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/jewelery">Jewelry</Link>
-        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/men's clothing">Men</Link>
-        <Link className="NavBar_Categories--Link hover:text-primary" to="/category/women's clothing">Women</Link>
-        
-      </div>
-      <div className="NavBar_CartWidget w-24 flex flex-row items-center justify-end">
-        <Cartwidget></Cartwidget>
-      </div>
-
-    </div>
-  );
-};
+export default Navbar;

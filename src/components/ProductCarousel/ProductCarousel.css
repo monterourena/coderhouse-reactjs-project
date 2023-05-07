@@ -1,0 +1,68 @@
+.ProductCarousel {
+  padding: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ProductCarousel--light{
+    background-color: #ffffff;
+}
+.ProductCarousel--dark{
+    background-color: #000000; 
+}
+
+.SectionTitle {
+  font-weight: 590;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.SectionTitle--light{
+    color: #000000; 
+}
+.SectionTitle--dark{
+    color: #ffffff; 
+}
+
+
+
+.SliderContainer {
+  display: flex;
+  gap: 32px;
+  overflow-x: scroll;
+  padding-bottom: 32px;
+}
+
+/* width */
+.SliderContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+
+/* Track */
+.SliderContainer--light::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.SliderContainer--dark::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+/* Handle */
+.SliderContainer--light::-webkit-scrollbar-thumb {
+  background: #F5F5F7;
+  border-radius: 8px;
+}
+.SliderContainer--dark::-webkit-scrollbar-thumb {
+    background: #1A1A1C;
+    border-radius: 8px;
+  }
+
+/* Handle on hover */
+.SliderContainer--light::-webkit-scrollbar-thumb:hover {
+  background: #e4e4e4;
+}
+.SliderContainer--dark::-webkit-scrollbar-thumb:hover {
+    background: #313135;
+  }

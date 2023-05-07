@@ -1,0 +1,30 @@
+.ProductsInCartWidget{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 649px;
+    overflow-y: scroll;
+    padding-right: 32px;
+
+}
+
+/* width */
+.ProductsInCartWidget::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  .ProductsInCartWidget::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  
+  /* Handle */
+  .ProductsInCartWidget::-webkit-scrollbar-thumb {
+    background: #f5f5f7;
+    border-radius: 8px;
+  }
+  
+  /* Handle on hover */
+  .ProductsInCartWidget::-webkit-scrollbar-thumb:hover {
+    background: #e4e4e4;
+  }

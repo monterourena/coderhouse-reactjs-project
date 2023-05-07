@@ -1,0 +1,26 @@
+.Hero {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.Hero--light {
+  background-color: #ffffff;
+}
+
+.Hero--dark {
+  background-color: #000000;
+}
+
+.HeroPictureContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.HeroPicture{
+  max-height: 480px;
+  max-width: 920px;
+  width: 80%;
+}

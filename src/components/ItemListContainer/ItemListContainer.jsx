@@ -5,8 +5,6 @@ import ItemList from '../ItemList/ItemList'
 async function getProducts(url){
   const response = await fetch(url)
   const data = await response.json()
-
-  console.log(data)
   return data
 
 }
@@ -18,12 +16,9 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([])
   const type = false;
 
-  console.log("PARAM: ", id)
-
   // const type = id !== 0;
 
   useEffect(()=>{
-    console.log("Inside useEffect")
     if(id){
       getProducts(`https://fakestoreapi.com/products/category/${id}`).then((products)=>setProducts(products))
     }
