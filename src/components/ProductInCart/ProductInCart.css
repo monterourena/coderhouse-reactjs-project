@@ -1,0 +1,58 @@
+.ProductInCart {
+  display: grid;
+  grid-template-columns: 3fr 6fr 1fr 1fr;
+  grid-template-rows: 143px;
+}
+
+.ProductInCart--Picture {
+  object-fit: cover;
+  width: 220px;
+  height: 110px;
+  border-radius: 16px;
+}
+
+.DetailsContainer,
+.PriceAndRemoveContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0px 16px;
+}
+
+.PriceAndRemoveContainer {
+  align-items: flex-end;
+}
+
+.Detail--Title {
+  font-weight: 590;
+  font-size: 24px;
+  line-height: 29px;
+}
+.Detail--ShowButton,
+.Detail--RemoveButton {
+  all: unset;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #0a84ff;
+}
+.Detail--Description {
+}
+.Detail--Price {
+  font-weight: 590;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.SelectorContainer {
+  height: 24px;
+  width: 48px;
+  border: none;
+  font-weight: 590;
+  font-size: 24px;
+  line-height: 29px;
+}
+.SelectorContainer:hover {
+  border: none;
+  color: #0a84ff;
+}

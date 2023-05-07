@@ -29,12 +29,36 @@ function CategoryScreen() {
       description: "The most powerful iPad, 1Tb storage, with M2 Pro",
       picture: "../../../demo/carousel/ipad-pro.png",
       price: 1599,
+    },
+    {
+      title: "iPad Air",
+      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
+      picture: "../../../demo/carousel/ipad-air.png",
+      price: 999,
+    },
+    {
+      title: "iPad Pro",
+      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
+      picture: "../../../demo/carousel/ipad-pro.png",
+      price: 1599,
+    },
+    {
+      title: "iPad Air",
+      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
+      picture: "../../../demo/carousel/ipad-air.png",
+      price: 999,
+    },
+    {
+      title: "iPad Pro",
+      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
+      picture: "../../../demo/carousel/ipad-pro.png",
+      price: 1599,
     }
     
   ];
 
   return (
-    <div>
+    <>
       <FeaturedProduct
         theme={theme}
         title="iPad"
@@ -45,8 +69,7 @@ function CategoryScreen() {
         linksEnabled = {false}
       />
       <ProductCarousel sectionTitle={sectionTitle} theme={theme} products={products}/>
-      {/* <ItemListContainer /> */}
-    </div>
+    </>
   );
 }
 

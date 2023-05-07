@@ -58,6 +58,8 @@ function HomeScreen() {
     
   ];
 
+  const sectionTitle = "The latest. Take a look at what's new, right now."
+
   return (
     <>
       <FeaturedProduct
@@ -75,7 +77,7 @@ function HomeScreen() {
         secondaryCtaViewPath="/item/6/"
         picture="../../../demo/watch-featured.png"
       />
-      <ProductCarousel theme={theme} products={products}/>
+      <ProductCarousel sectionTitle={sectionTitle} theme={theme} products={products}/>
 
       <TilesGallery>
         <TileCard
@@ -114,8 +116,6 @@ function HomeScreen() {
         />
 
       </TilesGallery>
-
-      {/* <ItemListContainer /> */}
     </>
   );
 }

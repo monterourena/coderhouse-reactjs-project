@@ -1,9 +1,19 @@
 .ViewWithHeader{
     padding: 76px 32px 0px 32px;
+    display: grid;
+}
+
+.Layout--Two{
+    grid-template-columns: 3fr  1fr;
+    gap:32px;
+}
+
+.FirstColumn, .SecondColumn{
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
+
 
 .ViewWithHeader--Header{
     display: flex;

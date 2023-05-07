@@ -2,9 +2,16 @@ import React from "react";
 import "./ProductDetails.css";
 import ProductActionButtons from "../ProductActionButtons/ProductActionButtons";
 
-function ProductDetails({ product }) {
+function ProductDetails({ product, variations }) {
   const subTotalPrice = "1999";
-  const currencySymbol = product.currency.symbol;
+
+  // !Esto tiene que venir del Global Context
+  const currencySymbol = "$";
+
+  // TODO: Mover el render a un <ProductDetailsTemplate/>
+  // TODO: Pasar al componente <ProductDetailsTemplate/> un children que será un componente <ProductVariationCard/>
+  // TODO: el componente <ProductVariationCard/> recibirá por props 
+  // todos los valores necesarios para actualizar el estado "variationsInCartInfo" del CartContext
 
   return (
     <div className="ProductDetail">
@@ -16,7 +23,7 @@ function ProductDetails({ product }) {
       <div className="ProductDetail--SidePanelContainer">
         <div className="SidePanel--Header">Model. Which is best for you?</div>
         <div className="SidePanel--Variations">
-          {product.variation.map((variation, index) => (
+          {variations.map((variation, index) => (
             <div key={index} className="ProductVariationContainer">
               <div className="ProductVariation--Details">
                 <div className="ProductVariation--Title">{variation.title}</div>
@@ -24,7 +31,7 @@ function ProductDetails({ product }) {
                   {variation.description}
                 </div>
               </div>
-              <div className="ProductVariation--Price">{`${currencySymbol}${variation.optionPrice}`}</div>
+              <div className="ProductVariation--Price">{`${currencySymbol}${variation.price}`}</div>
             </div>
           ))}
         </div>
@@ -33,7 +40,7 @@ function ProductDetails({ product }) {
           <p className="TotalDetails--SubtotalValue">{`${currencySymbol}${subTotalPrice}`}</p>
         </div>
         {/* ESTO SE TIENE QUE REEMPLAZAR POR UN COMPONENTE */}
-        <ProductActionButtons/>
+        <ProductActionButtons />
       </div>
     </div>
   );
