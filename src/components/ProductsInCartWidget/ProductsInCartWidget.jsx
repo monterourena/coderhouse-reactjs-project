@@ -3,6 +3,7 @@ import ProductInCart from "../ProductInCart/ProductInCart";
 import "./ProductsInCartWidget.css"
 
 function ProductsInCartWidget({productsInCart, getVariationDetails, currency}) {
+  console.log(productsInCart)
   return (
     <div className="ProductsInCartWidget">
       {productsInCart.map((productInCart, index) => {

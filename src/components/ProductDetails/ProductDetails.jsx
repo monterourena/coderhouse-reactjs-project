@@ -1,9 +1,8 @@
 import React from "react";
 import "./ProductDetails.css";
-import ProductActionButtons from "../ProductActionButtons/ProductActionButtons";
 
-function ProductDetails({ product, variations }) {
-  const subTotalPrice = "1999";
+
+function ProductDetails({subtotalItem,setSubtotalItem, product, variations, setProductVariant, children }) {
 
   // !Esto tiene que venir del Global Context
   const currencySymbol = "$";
@@ -12,6 +11,15 @@ function ProductDetails({ product, variations }) {
   // TODO: Pasar al componente <ProductDetailsTemplate/> un children que será un componente <ProductVariationCard/>
   // TODO: el componente <ProductVariationCard/> recibirá por props 
   // todos los valores necesarios para actualizar el estado "variationsInCartInfo" del CartContext
+
+  const onSelection=(variation)=>{
+    const pid =variation.pid;
+    const vid =variation.vid;
+    const subtotal = variation.price
+    console.log({pid, vid})
+    setProductVariant({pid, vid})
+    setSubtotalItem(subtotal)
+  }
 
   return (
     <div className="ProductDetail">
@@ -24,7 +32,7 @@ function ProductDetails({ product, variations }) {
         <div className="SidePanel--Header">Model. Which is best for you?</div>
         <div className="SidePanel--Variations">
           {variations.map((variation, index) => (
-            <div key={index} className="ProductVariationContainer">
+            <div onClick={()=>onSelection(variation)} key={index} className="ProductVariationContainer">
               <div className="ProductVariation--Details">
                 <div className="ProductVariation--Title">{variation.title}</div>
                 <div className="ProductVariation--Description">
@@ -37,10 +45,9 @@ function ProductDetails({ product, variations }) {
         </div>
         <div className="SidePanel--TotalDetails">
           <p className="TotalDetails--SubtotalTitle">Subtotal</p>
-          <p className="TotalDetails--SubtotalValue">{`${currencySymbol}${subTotalPrice}`}</p>
+          <p className="TotalDetails--SubtotalValue">{`${currencySymbol}${subtotalItem}`}</p>
         </div>
-        {/* ESTO SE TIENE QUE REEMPLAZAR POR UN COMPONENTE */}
-        <ProductActionButtons />
+        {children}
       </div>
     </div>
   );

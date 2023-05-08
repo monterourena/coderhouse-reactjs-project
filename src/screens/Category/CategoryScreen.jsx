@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FeaturedProduct from "../../components/FeaturedProduct/FeaturedProduct";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 
 function CategoryScreen() {
   const theme="dark"
+  const {setGlobalTheme} = useGlobalContext();
+
+  useEffect(()=>{
+    setGlobalTheme(theme);
+  },[])
+
   const sectionTitle = "The latest. Take a look at what's new, right now."
   const products = [
     {
@@ -68,7 +75,7 @@ function CategoryScreen() {
         picture="../../../demo/tiles/ipad-air.png"
         linksEnabled = {false}
       />
-      <ProductCarousel sectionTitle={sectionTitle} theme={theme} products={products}/>
+      <ProductCarousel sectionTitle={sectionTitle} theme={"light"} products={products}/>
     </>
   );
 }

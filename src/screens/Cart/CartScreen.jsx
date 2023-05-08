@@ -1,55 +1,68 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ViewWithHeader from "../../components/ViewWithHeader/ViewWithHeader";
 import ProductsInCartWidged from "../../components/ProductsInCartWidget/ProductsInCartWidget";
 import CheckoutWidget from "../../components/CheckoutWidget/CheckoutWidget";
+import { useGlobalContext } from "../../contexts/GlobalContextProvider";
+import { useCartContext } from "../../contexts/CartContextProvider";
 
 function CartScreen() {
-  // !Esto llega del cartContext.
-  const productsInCart = [
-    { pid: 0, vid: 3, quantitySelected: 10 },
-    { pid: 4, vid: 2, quantitySelected: 7 },
-    { pid: 7, vid: 3, quantitySelected: 3 },
-    { pid: 0, vid: 3, quantitySelected: 10 },
-    { pid: 4, vid: 2, quantitySelected: 7 },
-    { pid: 7, vid: 3, quantitySelected: 10 },
-  ];
-  const subTotal = 999;
-  const estimatedTaxes = 278;
-  const total = 1277;
-
-  const currency = { code: "USD", symbol: "$" }; // !Esto viene del GlobalContext
+  useEffect(()=>{
+    setGlobalTheme("light");
+  },[])
+  
+  const { setGlobalTheme, globalCurrency:currency } = useGlobalContext();
+  const {total, subtotal, estimatedTax, productsInCart} = useCartContext()
+  
 
   // !Este estado se actualiza cuando se agrega el producto al carrito. El fetch de la información se hace en la página del producto
   // !El detalle del producto debe sacarse del array cuando el produco se quita del carrito
   const variationsInCartInfo = [
     {
       pid: 0,
-      vid: 3,
+      vid: 0,
+      title: "iPhone 14 Pro",
+      description: "128 Gb",
       price: 999,
       stock: 10,
-      title: "iPhone 14 Pro Max",
-      description: "256 GB",
-      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
+      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg"
     },
     {
-      pid: 4,
+      pid: 0,
+      vid: 1,
+      title: "iPhone 14 Pro",
+      description: "256 Gb",
+      price: 1099,
+      stock: 10,
+      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg"
+    },
+    {
+      pid: 0,
       vid: 2,
-      price: 2999,
+      title: "iPhone 14 Pro Max",
+      description: "128 Gb",
+      price: 1999,
       stock: 10,
-      title: "iPad Air",
-      description: "128 GB",
-      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
+      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg"
     },
     {
-      pid: 7,
+      pid: 0,
       vid: 3,
-      price: 3999,
+      title: "iPhone 14 Pro Max",
+      description: "259 Gb",
+      price: 2499,
       stock: 10,
-      title: "Macbook Pro",
-      description: "1 TB",
-      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
+      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg"
     },
-  ];
+    {
+      pid: 0,
+      vid: 4,
+      title: "iPhone 14 Pro Max",
+      description: "1 Tb",
+      price: 3899,
+      stock: 10,
+      picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg"
+    }
+  ]
   const getVariationDetails = (pid, vid) =>
     variationsInCartInfo.find(
       (variation) => variation.pid === pid && variation.vid === vid
@@ -67,8 +80,8 @@ function CartScreen() {
         currency={currency}
       />
       <CheckoutWidget
-        subTotal={subTotal}
-        estimatedTaxes={estimatedTaxes}
+        subtotal={subtotal}
+        estimatedTax={estimatedTax}
         total={total}
         currency={currency}
       />

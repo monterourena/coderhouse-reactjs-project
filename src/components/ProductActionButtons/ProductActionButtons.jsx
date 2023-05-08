@@ -1,23 +1,25 @@
 import React from "react";
 import "./ProductActionButtons.css";
 
-function ProductActionButtons() {
-  const actionButtonDefaultState = true;
-  const itemCount = 10;
+function ProductActionButtons({onAddToCard, productCounter, setProductCounter, addToCartClicked}) {
+  
+
+  const add =()=>setProductCounter(productCounter+1)
+  const sub =()=>setProductCounter(productCounter-1)
 
   return (
     <div className="ProductActionButtons">
-      {!!actionButtonDefaultState && (
+      {!addToCartClicked && (
         <div className="DefaultState">
           <div className="ItemCounter">
-            <div className="ItemCounterButton ItemCounterButton--Secondary">-</div>
-            <div>{itemCount}</div>
-            <div className="ItemCounterButton ItemCounterButton--Primary">+</div>
+            <div onClick={sub} className="ItemCounterButton ItemCounterButton--Secondary">-</div>
+            <div>{productCounter}</div>
+            <div onClick={add} className="ItemCounterButton ItemCounterButton--Primary">+</div>
           </div>
-          <div className="ActionButton ActionButton--Primary">Add to cart</div>
+          <div onClick={onAddToCard} className="ActionButton ActionButton--Primary">Add to cart</div>
         </div>
       )}
-      {!actionButtonDefaultState && (
+      {!!addToCartClicked && (
         <div className="ActivatedState">
           <div className="ActionButton ActionButton--Secondary">
             All products

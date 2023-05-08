@@ -13,7 +13,7 @@ const CartWidget = ({iconPath, itemCount, theme}) => {
           alt="ViteLogo"
         />
         <div className={`CartWidgetNumber CartWidgetNumber--${theme}`}>
-          {itemCount}
+          {!!itemCount && itemCount}
         </div>
       </div>
   );

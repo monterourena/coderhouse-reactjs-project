@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import NavbarTemplate from "./NavbarTemplate.jsx";
 import CartWidget from "../CartWidget/CartWidget.jsx";
+import { useGlobalContext } from "../../contexts/GlobalContextProvider.jsx";
 
 function Navbar() {
 
-  const itemCount = 78;
-  const theme = "dark"
+  const {globalCartCount: itemCount,globalTheme:theme} = useGlobalContext();
+
+
   const categories = [
     { name: "Electronics", path: "electronics" },
     { name: "Jewelry", path: "jewelery" },
