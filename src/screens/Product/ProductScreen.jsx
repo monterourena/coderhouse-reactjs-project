@@ -76,26 +76,35 @@ function ProductScreen() {
 
   // The default selection is the first option we get for this product
   const defaultSelection = variationsForThisProduct[0];
-  const defaultProductVariant = {
-    pid: defaultSelection.pid,
-    vid: defaultSelection.vid,
-  };
-  const defaultSubtotal = defaultSelection.price
+  const defaultSubtotal = defaultSelection.price;
 
-  const { setGlobalTheme } = useGlobalContext();
+  const { setGlobalTheme, globalCartCount, setGlobalCartCount } =
+    useGlobalContext();
   const { productsInCart, setProductsInCart } = useCartContext();
-  const [productVariant, setProductVariant] = useState(defaultProductVariant);
+  const [productVariant, setProductVariant] = useState(defaultSelection);
   const [productCounter, setProductCounter] = useState(1);
   const [subtotalItem, setSubtotalItem] = useState(defaultSubtotal);
-  const [addToCartClicked, setAddToCartClicked] = useState(false)
+  const [addToCartClicked, setAddToCartClicked] = useState(false);
 
   // !Product se obtiene a partir de un fetch a Firebase usando el pid del parametro de la URL
   // !una vez obtenido el pid se hace un fetch a Firebase para que pase la lista de variaciones disponibles para ese pid
 
   const onAddToCard = () => {
-    setProductsInCart([...productsInCart, { ...productVariant, quantitySelected: productCounter}]);
-    setAddToCartClicked(true)
+    setProductsInCart([
+      ...productsInCart,
+      { ...productVariant, quantitySelected: productCounter },
+    ]);
+    setAddToCartClicked(true);
+    setGlobalCartCount(globalCartCount + productCounter);
   };
+
+  const onSelection = (variation) => {
+    setProductVariant(variation);
+  };
+
+  useEffect(() => {
+    setSubtotalItem(productVariant.price * productCounter);
+  }, [productCounter, productVariant]);
 
   return (
     <ViewWithHeader
@@ -108,13 +117,14 @@ function ProductScreen() {
         product={product}
         variations={variationsForThisProduct}
         setProductVariant={setProductVariant}
-        setSubtotalItem={setSubtotalItem}
+        onSelection={onSelection}
       >
         <ProductActionButtons
           onAddToCard={onAddToCard}
           productCounter={productCounter}
           setProductCounter={setProductCounter}
           addToCartClicked={addToCartClicked}
+          stock={productVariant.stock}
         />
       </ProductDetails>
     </ViewWithHeader>

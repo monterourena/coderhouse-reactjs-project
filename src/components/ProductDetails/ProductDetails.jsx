@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductDetails.css";
 
 
-function ProductDetails({subtotalItem,setSubtotalItem, product, variations, setProductVariant, children }) {
+function ProductDetails({subtotalItem,onSelection, product, variations, children }) {
 
   // !Esto tiene que venir del Global Context
   const currencySymbol = "$";
@@ -12,14 +12,7 @@ function ProductDetails({subtotalItem,setSubtotalItem, product, variations, setP
   // TODO: el componente <ProductVariationCard/> recibirá por props 
   // todos los valores necesarios para actualizar el estado "variationsInCartInfo" del CartContext
 
-  const onSelection=(variation)=>{
-    const pid =variation.pid;
-    const vid =variation.vid;
-    const subtotal = variation.price
-    console.log({pid, vid})
-    setProductVariant({pid, vid})
-    setSubtotalItem(subtotal)
-  }
+  
 
   return (
     <div className="ProductDetail">

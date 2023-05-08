@@ -35,6 +35,10 @@ function App() {
               path="/cart"
               element={<ScrollToTop component={<CartScreen />} />}
             />
+            <Route
+              path="/order/:oid"
+              element={<ScrollToTop component={<HomeScreen />} />}
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <Footer />

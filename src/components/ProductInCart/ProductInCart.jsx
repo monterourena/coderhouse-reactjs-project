@@ -1,34 +1,40 @@
-
+import { useCartContext } from "../../contexts/CartContextProvider";
+import useSetProductQuantity from "../../hooks/useSetProductQuantity";
 import ProductInCartTemplate from "./ProductInCartTemplate";
 
-function ProductInCart({ details, currency, quantitySelected }) {
-  const optionsList = Array.from(Array(details.stock).keys());
-  const selectorChange = (event) => {
-    console.log({
-      pid: details.pid,
-      vid: details.vid,
-      newValue: event.target.value,
+function ProductInCart({ productInCart, currency }) {
+  const { productsInCart, setProductsInCart } = useCartContext();
+
+  const optionsList = Array.from(Array(productInCart.stock).keys());
+
+  const onSelectorChange = (event) => {
+    const updatedProduct = {
+      ...productInCart,
+      quantitySelected: parseInt(event.target.value),
+    };
+
+    const updatedProducts = useSetProductQuantity({
+      updatedProduct,
+      productsInCart,
     });
+    setProductsInCart([...updatedProducts]);
   };
+
+  const onRemove = (productInCart) => {
+    const updatedProducts = productsInCart.filter((product)=>product.pid !== productInCart.pid || product.vid !== productInCart.vid)
+    setProductsInCart([...updatedProducts]);
+  };
+
   return (
     <ProductInCartTemplate
-      details={details}
+      productInCart={productInCart}
       currency={currency}
-      quantitySelected={quantitySelected}
-      onChange={selectorChange}
+      quantitySelected={productInCart.quantitySelected}
       optionsList={optionsList}
+      onChange={onSelectorChange}
+      onRemove={onRemove}
     />
   );
 }
 
 export default ProductInCart;
-
-// {
-//   pid: 4,
-//   vid: 2,
-//   price: 2999,
-//   stock: 10,
-//   title: "iPad Air",
-//   description: "128 GB",
-//   picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-// },

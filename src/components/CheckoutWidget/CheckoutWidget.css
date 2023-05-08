@@ -67,6 +67,10 @@
   line-height: 19px;
 }
 
+.CheckoutButton--Disabled{
+  background: #54545827;
+}
+
 /* CARD */
 
 .GradientCard {

@@ -1,17 +1,29 @@
 import React from "react";
 import ProductInCart from "../ProductInCart/ProductInCart";
-import "./ProductsInCartWidget.css"
+import "./ProductsInCartWidget.css";
+import { useCartContext } from "../../contexts/CartContextProvider";
+import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 
-function ProductsInCartWidget({productsInCart, getVariationDetails, currency}) {
-  console.log(productsInCart)
+function ProductsInCartWidget() {
+  // productsInCart = { productsInCart };
+  // getVariationDetails = { getVariationDetails };
+  // currency = { currency };
+
+  const {productsInCart} = useCartContext()
+  const {globalCurrency} = useGlobalContext()
+
+
+
   return (
     <div className="ProductsInCartWidget">
       {productsInCart.map((productInCart, index) => {
-        const details = getVariationDetails(
-          productInCart.pid,
-          productInCart.vid
+        return (
+          <ProductInCart
+            key={index}
+            productInCart={productInCart}
+            currency={globalCurrency}
+          />
         );
-        return <ProductInCart quantitySelected={productInCart.quantitySelected} key={index} details={details} currency={currency}/>;
       })}
     </div>
   );

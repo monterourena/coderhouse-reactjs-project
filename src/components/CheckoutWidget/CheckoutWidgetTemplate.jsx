@@ -8,8 +8,10 @@ function CheckoutWidgetTemplate(props) {
     estimatedTax,
     currency,
     total,
-    onClick,
+    onClickCheckout,
+    onClickConfirm,
     isCheckout,
+    globalCartCount
   } = props;
 
   const {
@@ -19,10 +21,10 @@ function CheckoutWidgetTemplate(props) {
     getValues,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    onClickConfirm(data);
   };
   const emailRegexPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  const phoneRegexPattern = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
+  const phoneRegexPattern = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g;
 
   return (
     <div className="CheckoutWidget">
@@ -134,10 +136,16 @@ function CheckoutWidgetTemplate(props) {
                       required: true,
                       pattern: emailRegexPattern,
                       validate: () =>
-                       getValues("inputEmail")=== getValues("inputEmailConfirmation"),
+                        getValues("inputEmail") ===
+                        getValues("inputEmailConfirmation"),
                     })}
                   />
-                 {errors.inputEmailConfirmation?.type==="validate" && <p className="ErrorMessage">Email fields must match</p>}
+                  {errors.inputEmailConfirmation?.type === "validate" && (
+                    <p className="ErrorMessage">Email fields must match</p>
+                  )}
+                  {errors.inputEmailConfirmation?.type === "pattern" && (
+                    <p className="ErrorMessage">Invalid email address</p>
+                  )}
                 </div>
                 <div className="InputFieldContainer">
                   <label className="InputTitle" htmlFor="PhoneInput">
@@ -148,9 +156,15 @@ function CheckoutWidgetTemplate(props) {
                     type="text"
                     id="PhoneInput"
                     placeholder="+50685545211"
-                    {...register("inputPhone", { required: true, pattern: phoneRegexPattern, min:7 })}
+                    {...register("inputPhone", {
+                      required: true,
+                      pattern: phoneRegexPattern,
+                      min: 7,
+                    })}
                   />
-                  {errors.inputPhone?.type==="pattern" && <p className="ErrorMessage">Invalid phone number</p>}
+                  {errors.inputPhone?.type === "pattern" && (
+                    <p className="ErrorMessage">Invalid phone number</p>
+                  )}
                 </div>
               </form>
             </div>
@@ -161,13 +175,16 @@ function CheckoutWidgetTemplate(props) {
             <div>Total</div>
             <div>{`${currency.symbol}${total}`}</div>
           </div>
-          <button
-            className="CheckoutButton"
-            type="submit"
-            form="ConfirmationForm"
-          >
-            {isCheckout ? "Checkout" : "Confirm"}
-          </button>
+          {isCheckout && <button onClick={onClickCheckout} className={`CheckoutButton ${!globalCartCount?"CheckoutButton--Disabled" : ""}`}>Checkout</button>}
+          {!isCheckout && (
+            <button
+              className="CheckoutButton"
+              type="submit"
+              form="ConfirmationForm"
+            >
+              Confirm
+            </button>
+          )}
         </div>
       </div>
     </div>
