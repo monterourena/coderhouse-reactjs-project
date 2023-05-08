@@ -2,7 +2,6 @@ import React from 'react'
 import "./ProductInCart.css";
 
 function ProductInCartTemplate({ details, currency, quantitySelected, onChange, optionsList }) {
-    console.info("Re-render")
   return (
     <div className="ProductInCart">
       <img className="ProductInCart--Picture" src={details.picture} alt="" />
