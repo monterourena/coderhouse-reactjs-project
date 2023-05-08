@@ -9,10 +9,11 @@ function Navbar() {
 
 
   const categories = [
-    { name: "Electronics", path: "electronics" },
-    { name: "Jewelry", path: "jewelery" },
-    { name: "Men", path: "men's clothing" },
-    { name: "Women", path: "women's clothing" },
+    { name: "iPhone", path: "electronics" },
+    { name: "iPad", path: "jewelery" },
+    { name: "Mac", path: "men's clothing" },
+    { name: "AirPods", path: "women's clothing" },
+    { name: "Watch", path: "women's clothing" },
   ];
 
   const logoIconPath = "../../../logo/apple.svg";
