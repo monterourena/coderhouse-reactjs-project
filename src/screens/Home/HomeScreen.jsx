@@ -3,25 +3,26 @@ import FeaturedProduct from "../../components/FeaturedProduct/FeaturedProduct";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import TileCard from "../../components/TileCard/TileCard";
 import TilesGallery from "../../components/TilesGallery/TilesGallery";
-
-import products from "../../data/products.demo";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 
-function HomeScreen() {
+import products from "../../data/products.demo";
 
-  const {setGlobalTheme} = useGlobalContext();
-  useEffect(()=>{
+
+function HomeScreen() {
+  const { setGlobalTheme } = useGlobalContext();
+  useEffect(() => {
     setGlobalTheme("dark");
-  },[])
-  
-  const sectionTitle = "The latest. Take a look at what's new, right now."
+  }, []);
+
+  const sectionTitle = "The latest. Take a look at what's new, right now.";
+
 
   return (
     <>
       <FeaturedProduct
         title="iPhone 14 Pro"
         phrase="Pro.Beyond."
-        primaryCtaViewPath="/category/electronics/"
+        primaryCtaViewPath="/category/iphone/"
         secondaryCtaViewPath="/item/1/"
         picture="../../../demo/iphone-featured.png"
       />
@@ -29,48 +30,51 @@ function HomeScreen() {
         theme="light"
         title="Apple Watch Ultra"
         phrase="Adventure awaits."
-        primaryCtaViewPath="/category/jewelery/"
+        primaryCtaViewPath="/category/watch/"
         secondaryCtaViewPath="/item/6/"
         picture="../../../demo/watch-featured.png"
       />
-      <ProductCarousel sectionTitle={sectionTitle} theme={"light"} products={products}/>
+      <ProductCarousel
+        sectionTitle={sectionTitle}
+        theme={"light"}
+        products={products}
+      />
 
       <TilesGallery>
         <TileCard
           theme="light"
           title="iPad Air"
-          phrase="Lovable. Drawable. Magical."
-          primaryCtaViewPath="/category/women's clothing/"
-          secondaryCtaViewPath="/item/19/"
+          phrase="Light. Bright. Full of might."
+          primaryCtaViewPath="/category/ipad/"
+          secondaryCtaViewPath="/item/ipad-air/"
           picture="../../../demo/tiles/ipad-air.png"
         />
 
         <TileCard
           theme="light"
           title="Mac Studio"
-          phrase="More muscle. More hustle."
-          primaryCtaViewPath="/category/men's clothing/"
-          secondaryCtaViewPath="/item/3/"
+          phrase="Empower station."
+          primaryCtaViewPath="/category/mac/"
+          secondaryCtaViewPath="/item/mac-studio/"
           picture="../../../demo/tiles/mac-studio.png"
         />
         <TileCard
           theme="dark"
           title="Macbook Pro"
-          phrase="Supercharged by M2."
-          primaryCtaViewPath="/category/electronics/"
-          secondaryCtaViewPath="/item/14/"
+          phrase="Mover. Maker. Boundary breaker."
+          primaryCtaViewPath="/category/mac/"
+          secondaryCtaViewPath="/item/macbook-pro/"
           picture="../../../demo/tiles/macbook-pro.png"
         />
 
         <TileCard
           theme="dark"
-          title="Airpods Pro"
-          phrase="Rebuilt from the sound up."
-          primaryCtaViewPath="/category/jewelery/"
-          secondaryCtaViewPath="/item/6/"
+          title="iPhone SE"
+          phrase="Serious power. Serious value."
+          primaryCtaViewPath="/category/iphone/"
+          secondaryCtaViewPath="/item/iphone-se/"
           picture="../../../demo/tiles/airpods-pro.png"
         />
-
       </TilesGallery>
     </>
   );

@@ -17,11 +17,11 @@ function NavbarTemplate({ logoIconPath, theme, categories, children }) {
         <div className="NavbarCategoriesContainer">
           {categories.map((category) => (
             <Link
-              key={category.path}
+              key={category.key}
               className={`NavbarCategoryItem NavbarCategoryItem--${theme}`}
-              to={`/category/${category.path}`}
+              to={`/category/${category.key}`}
             >
-              {category.name}
+              {category.title}
             </Link>
           ))}
         </div>

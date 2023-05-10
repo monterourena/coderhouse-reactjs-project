@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 import ViewWithHeader from "../../components/ViewWithHeader/ViewWithHeader";
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import ProductActionButtons from "../../components/ProductActionButtons/ProductActionButtons";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
+
 
 const product = {
   pid: 0,
@@ -20,7 +22,6 @@ const product = {
     ],
   },
 };
-
 const variationsForThisProduct = [
   {
     pid: 0,
@@ -70,24 +71,55 @@ const variationsForThisProduct = [
 ];
 
 function ProductScreen() {
+
+  const { key } = useParams();
+  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentModels, setCurrentModels] = useState([]);
+  const {
+    setGlobalTheme,
+    globalCartCount,
+    setGlobalCartCount,
+    globalProducts,
+    globalModels,
+  } = useGlobalContext();
+
+
+  const findProduct = (key)=> globalProducts.find((product)=> product.key === key)
+  const findModels = (mid)=> globalModels.find((model)=> model.mid == mid)
+
   useEffect(() => {
     setGlobalTheme("light");
+    setCurrentProduct(findProduct(key))
   }, []);
+
+  useEffect(()=>{
+    setCurrentProduct(findProduct(key))
+  },[globalProducts])
+  
+  useEffect(()=>{
+    console.log("CURRENT PRODUCT: ", currentProduct)
+    setCurrentModels(findModels(currentProduct?.modelsId))
+  },[currentProduct])
+
+  useEffect(()=>{
+    console.log("CURRENT MODELS: ", currentModels)
+    console.log("DEFAULT MODEL: ", currentModels)
+  },[currentModels])
+
 
   // The default selection is the first option we get for this product
   const defaultSelection = variationsForThisProduct[0];
   const defaultSubtotal = defaultSelection.price;
 
-  const { setGlobalTheme, globalCartCount, setGlobalCartCount } =
-    useGlobalContext();
+  
+
   const { productsInCart, setProductsInCart } = useCartContext();
   const [productVariant, setProductVariant] = useState(defaultSelection);
   const [productCounter, setProductCounter] = useState(1);
   const [subtotalItem, setSubtotalItem] = useState(defaultSubtotal);
   const [addToCartClicked, setAddToCartClicked] = useState(false);
 
-  // !Product se obtiene a partir de un fetch a Firebase usando el pid del parametro de la URL
-  // !una vez obtenido el pid se hace un fetch a Firebase para que pase la lista de variaciones disponibles para ese pid
+  
 
   const onAddToCard = () => {
     setProductsInCart([

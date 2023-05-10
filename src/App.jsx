@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
+
+// Components
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import HomeScreen from "./screens/Home/HomeScreen";
@@ -7,11 +10,15 @@ import CategoryScreen from "./screens/Category/CategoryScreen";
 import ProductScreen from "./screens/Product/ProductScreen";
 import CartScreen from "./screens/Cart/CartScreen";
 import ScrollToTop from "./utils/ScrollToTop";
+
+// Context
 import { GlobalContextProvider } from "./contexts/GlobalContextProvider";
 import { CartContextProvider } from "./contexts/CartContextProvider";
 
+
 function App() {
   <ScrollToTop component={<CategoryScreen />} />;
+
   return (
     <BrowserRouter>
       <GlobalContextProvider>
@@ -27,7 +34,7 @@ function App() {
               element={<ScrollToTop component={<CategoryScreen />} />}
             />
             <Route
-              path="/item/:id"
+              path="/item/:key"
               element={<ScrollToTop component={<ProductScreen />} />}
             />
 
