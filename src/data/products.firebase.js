@@ -1022,7 +1022,7 @@ const models = [
 
 const products = [
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "macbook-air",
     title: "MacBook Air",
     catchline: "Power. It's in the Air.",
@@ -1036,7 +1036,7 @@ const products = [
     },
   },
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "macbook-pro",
     title: "MacBook Pro",
     catchline: "Mover. Maker. Boundary breaker.",
@@ -1050,7 +1050,7 @@ const products = [
     },
   },
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "imac",
     title: "iMac",
     catchline: "Works smarter.Goes further.",
@@ -1064,7 +1064,7 @@ const products = [
     },
   },
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "mac-mini",
     title: "Mac mini",
     catchline: "More muscle.More hustle.",
@@ -1079,7 +1079,7 @@ const products = [
     },
   },
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "mac-studio",
     title: "Mac Studio",
     catchline: "Empower station.",
@@ -1094,7 +1094,7 @@ const products = [
     },
   },
   {
-    categoryKey: "mac",
+    categoryId: "mac",
     key: "mac-pro",
     title: "Mac Pro",
     catchline: "Powerfully purposeful.",
@@ -1312,24 +1312,28 @@ const categories = [
     title: "Mac",
     sectionSubtitle: "Which Mac is right for you?",
     featuredProductId: "XmE0V7lMRJHwMRFLQZax",
+    theme:"light"
   },
   {
     key: "ipad",
     title: "iPad",
     sectionSubtitle: "Which iPad is right for you?",
     featuredProductId: "4YZ1RQpUhFC5vgpAr1iB",
+    theme:"light"
   },
   {
     key: "iphone",
     title: "iPhone",
     sectionSubtitle: "Love the power.Love the price.",
     featuredProductId: "yPzobmNe6E4uRXfCBoOC",
+    theme:"light"
   },
   {
     key: "watch",
     title: "Watch",
     sectionSubtitle: "A healthy leap ahead.",
     featuredProductId: "Jzb6GR7Msvb09BOnBc2I",
+    theme:"light"
   },
 
 ];

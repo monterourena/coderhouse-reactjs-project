@@ -2,7 +2,7 @@ import React from "react";
 import FeaturedProductTemplate from "./FeaturedProductTemplate.jsx";
 import ContentCTA from "../ContentCTA/ContentCTA.jsx";
 
-function FeaturedProduct(props) {
+function FeaturedProduct({content}) {
   const {
     theme,
     title,
@@ -13,7 +13,7 @@ function FeaturedProduct(props) {
     secondaryCtaViewPath,
     picture,
     linksEnabled
-  } = props;
+  } = content;
 
   return (
     <FeaturedProductTemplate theme={theme} picture={picture}>

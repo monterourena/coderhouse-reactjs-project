@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import ViewWithHeader from "../../components/ViewWithHeader/ViewWithHeader";
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import ProductActionButtons from "../../components/ProductActionButtons/ProductActionButtons";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
-
 
 const product = {
   pid: 0,
@@ -71,92 +70,93 @@ const variationsForThisProduct = [
 ];
 
 function ProductScreen() {
-
+  
+  //Params and contexts
   const { key } = useParams();
-  const [currentProduct, setCurrentProduct] = useState({});
-  const [currentModels, setCurrentModels] = useState([]);
   const {
     setGlobalTheme,
     globalCartCount,
     setGlobalCartCount,
     globalProducts,
     globalModels,
+    globalCurrency,
   } = useGlobalContext();
-
-
-  const findProduct = (key)=> globalProducts.find((product)=> product.key === key)
-  const findModels = (mid)=> globalModels.find((model)=> model.mid == mid)
-
-  useEffect(() => {
-    setGlobalTheme("light");
-    setCurrentProduct(findProduct(key))
-  }, []);
-
-  useEffect(()=>{
-    setCurrentProduct(findProduct(key))
-  },[globalProducts])
-  
-  useEffect(()=>{
-    console.log("CURRENT PRODUCT: ", currentProduct)
-    setCurrentModels(findModels(currentProduct?.modelsId))
-  },[currentProduct])
-
-  useEffect(()=>{
-    console.log("CURRENT MODELS: ", currentModels)
-    console.log("DEFAULT MODEL: ", currentModels)
-  },[currentModels])
-
-
-  // The default selection is the first option we get for this product
-  const defaultSelection = variationsForThisProduct[0];
-  const defaultSubtotal = defaultSelection.price;
-
-  
-
   const { productsInCart, setProductsInCart } = useCartContext();
-  const [productVariant, setProductVariant] = useState(defaultSelection);
+
+  // States
+  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentModels, setCurrentModels] = useState([]);
+  const [selectedModel, setSelectedModel] = useState({});
+  const [selectedModelIndex, setSelectedModelIndex] = useState(0)
+  const [subtotalItem, setSubtotalItem] = useState(0);
   const [productCounter, setProductCounter] = useState(1);
-  const [subtotalItem, setSubtotalItem] = useState(defaultSubtotal);
   const [addToCartClicked, setAddToCartClicked] = useState(false);
 
+
+  // Set the current product based on endpoint params
+  useEffect(() => {
+    setGlobalTheme("light");
+    const product = globalProducts.find((product) => product.key === key)
+    setCurrentProduct(product);
+  }, [globalProducts]);
+
+
+  // Set the available models for the current product based on product's modelsId
+  useEffect(() => {
+    const modelId = currentProduct?.modelsId;
+    const models = (globalModels.find((model) => model.mid == modelId))
+    setCurrentModels(models);
+
+    // Default selected model
+    const defaultModel = models?.payload[0] || {}
+    setSelectedModel(defaultModel)
+  }, [currentProduct]);
   
 
   const onAddToCard = () => {
     setProductsInCart([
       ...productsInCart,
-      { ...productVariant, quantitySelected: productCounter },
+      { ...selectedModel, quantitySelected: productCounter },
     ]);
     setAddToCartClicked(true);
     setGlobalCartCount(globalCartCount + productCounter);
   };
 
-  const onSelection = (variation) => {
-    setProductVariant(variation);
+  const onSelection = (model,index) => {
+    setSelectedModelIndex(index)
+    setSelectedModel(model);
   };
 
   useEffect(() => {
-    setSubtotalItem(productVariant.price * productCounter);
-  }, [productCounter, productVariant]);
+    setSubtotalItem(selectedModel?.price * productCounter);
+  }, [productCounter, selectedModel]);
 
+  if(!currentModels?.payload){
+    return ""
+  }
+  
   return (
     <ViewWithHeader
-      title={`Buy ${product.title}`}
-      description={product.description}
+      title={`Buy ${currentProduct.title}`}
+      description={currentProduct.description}
       rightPanel={false}
     >
       <ProductDetails
         subtotalItem={subtotalItem}
         product={product}
-        variations={variationsForThisProduct}
-        setProductVariant={setProductVariant}
+        models={currentModels.payload}
+        setSelectedModel={setSelectedModel}
         onSelection={onSelection}
+        selectedModelIndex={selectedModelIndex}
+        globalCurrency={globalCurrency}
+        
       >
         <ProductActionButtons
           onAddToCard={onAddToCard}
           productCounter={productCounter}
           setProductCounter={setProductCounter}
           addToCartClicked={addToCartClicked}
-          stock={productVariant.stock}
+          stock={selectedModel.stock}
         />
       </ProductDetails>
     </ViewWithHeader>

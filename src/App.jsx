@@ -15,7 +15,6 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { GlobalContextProvider } from "./contexts/GlobalContextProvider";
 import { CartContextProvider } from "./contexts/CartContextProvider";
 
-
 function App() {
   <ScrollToTop component={<CategoryScreen />} />;
 
@@ -30,7 +29,7 @@ function App() {
               element={<ScrollToTop component={<HomeScreen />} />}
             />
             <Route
-              path="/category/:id"
+              path="/category/:cid"
               element={<ScrollToTop component={<CategoryScreen />} />}
             />
             <Route
@@ -46,7 +45,7 @@ function App() {
               path="/order/:oid"
               element={<ScrollToTop component={<HomeScreen />} />}
             />
-            <Route path="*" element={<Navigate to="/" />} />
+            {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Routes>
           <Footer />
         </CartContextProvider>

@@ -24,16 +24,12 @@ function GlobalContextProvider({ children }) {
       const products = await getProductsFromFirestore();
       const categories = await getCategoriesFromFirestore();
       const models = await getModelsFromFirestore();
-      setGlobalProducts(products);
+      console.warn("FETCHING DATABASE")
       setGlobalCategories(categories)
+      setGlobalProducts(products);
       setGlobalModels(models)
     })()
   },[])  
-
-  console.log("Global Products:", globalProducts)
-  console.log("Global Categories:", globalCategories)
-  console.log("Global Models:", globalModels)
-
   return (
     <GlobalContext.Provider
       value={{

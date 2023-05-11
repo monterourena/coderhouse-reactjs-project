@@ -1,81 +1,61 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import FeaturedProduct from "../../components/FeaturedProduct/FeaturedProduct";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
+import { useParams } from "react-router-dom";
 
 function CategoryScreen() {
-  const theme="dark"
-  const {setGlobalTheme} = useGlobalContext();
+
+  const { cid } = useParams();
+  const {setGlobalTheme, globalProducts, globalCategories} = useGlobalContext();
+
+  const [products, setProducts] = useState(null)
+  const [category, setCategory] = useState("dark")
+  const [categoryTheme, setCategoryTheme] = useState("dark")
+  const [featuredProduct, setFeaturedProduct] = useState(null)
 
   useEffect(()=>{
-    setGlobalTheme(theme);
-  },[])
+    setGlobalTheme(categoryTheme);
+  },[categoryTheme])
 
-  const sectionTitle = "The latest. Take a look at what's new, right now."
-  const products = [
-    {
-      title: "iPad Air",
-      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
-      picture: "../../../demo/carousel/ipad-air.png",
-      price: 999,
-    },
-    {
-      title: "iPad Pro",
-      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
-      picture: "../../../demo/carousel/ipad-pro.png",
-      price: 1599,
-    },
-    {
-      title: "iPad Air",
-      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
-      picture: "../../../demo/carousel/ipad-air.png",
-      price: 999,
-    },
-    {
-      title: "iPad Pro",
-      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
-      picture: "../../../demo/carousel/ipad-pro.png",
-      price: 1599,
-    },
-    {
-      title: "iPad Air",
-      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
-      picture: "../../../demo/carousel/ipad-air.png",
-      price: 999,
-    },
-    {
-      title: "iPad Pro",
-      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
-      picture: "../../../demo/carousel/ipad-pro.png",
-      price: 1599,
-    },
-    {
-      title: "iPad Air",
-      description: "The ultimate iPad, 256 Gb storage, with M2 Max",
-      picture: "../../../demo/carousel/ipad-air.png",
-      price: 999,
-    },
-    {
-      title: "iPad Pro",
-      description: "The most powerful iPad, 1Tb storage, with M2 Pro",
-      picture: "../../../demo/carousel/ipad-pro.png",
-      price: 1599,
-    }
-    
-  ];
+  useEffect(()=>{
+    const productsByCategory = globalProducts.filter((product)=> product.categoryId === cid)
+    setProducts(productsByCategory)
+  },[globalProducts, cid])
+
+  useEffect(()=>{
+    const currentCategory = globalCategories.find((category)=> category.key === cid)
+    const featuredProduct = globalProducts.find((product)=> product.pid === currentCategory.featuredProductId)
+    setCategory(currentCategory)
+    setFeaturedProduct(featuredProduct)
+  },[globalCategories, cid])
+
+  useEffect(()=>{
+    const theme = category?.theme || "dark"
+    setCategoryTheme(theme)
+  },[category])
+
+
+  const productDetails = {
+    theme:categoryTheme,
+    title:featuredProduct?.title,
+    phrase:featuredProduct?.catchline,
+    picture:"../../../demo/tiles/ipad-air.png",
+    linksEnabled : false
+  }
+  const carouselContent = {
+    sectionTitle: category?.sectionSubtitle,
+    theme: "light",
+  };
+
+  if(!products || !category){
+    return ""
+  }
 
   return (
     <>
-      <FeaturedProduct
-        theme={theme}
-        title="iPad"
-        phrase="Lovable. Drawable. Magical."
-        primaryCtaViewPath="/category/electronics/"
-        secondaryCtaViewPath="/item/1/"
-        picture="../../../demo/tiles/ipad-air.png"
-        linksEnabled = {false}
-      />
-      <ProductCarousel sectionTitle={sectionTitle} theme={"light"} products={products}/>
+      <FeaturedProduct content={productDetails}/>
+      <ProductCarousel content={carouselContent} products={products}/>
     </>
   );
 }

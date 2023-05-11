@@ -2,8 +2,8 @@ import React from "react";
 import ProductCarouselTemplate from "./ProductCarouselTemplate";
 import ProductCard from "../ProductCard/ProductCard";
 
-function ProductCarousel({theme, sectionTitle, products}) {
-  
+function ProductCarousel({content, products}) {
+  const {theme, sectionTitle} = content
   return (
     <ProductCarouselTemplate sectionTitle={sectionTitle} theme={theme}>
       {products.map((product, index) => (
