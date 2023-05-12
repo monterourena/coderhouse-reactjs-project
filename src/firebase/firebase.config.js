@@ -15,4 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+console.warn("FIREBASE ENV KEYS: ", firebaseConfig)
+
 export { db };
