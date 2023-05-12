@@ -3,7 +3,7 @@ import "./TileCard.css";
 import TileCardTemplate from "./TileCardTemplate";
 import ContentCTA from "../ContentCTA/ContentCTA";
 
-function TileCard(props) {
+function TileCard({content}) {
   const {
     theme,
     title,
@@ -13,7 +13,7 @@ function TileCard(props) {
     secondaryCtaText,
     secondaryCtaViewPath,
     picture,
-  } = props;
+  } = content;
   return (
     <TileCardTemplate theme={theme} picture={picture}>
       <ContentCTA

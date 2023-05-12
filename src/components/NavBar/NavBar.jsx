@@ -5,16 +5,16 @@ import { useGlobalContext } from "../../contexts/GlobalContextProvider.jsx";
 
 function Navbar() {
 
-  const {globalCartCount: itemCount,globalTheme:theme} = useGlobalContext();
+  const {globalCartCount: itemCount,globalTheme:theme, globalCategories} = useGlobalContext();
 
 
-  const categories = [
-    { name: "iPhone", path: "electronics" },
-    { name: "iPad", path: "jewelery" },
-    { name: "Mac", path: "men's clothing" },
-    { name: "AirPods", path: "women's clothing" },
-    { name: "Watch", path: "women's clothing" },
-  ];
+  // const categories = [
+  //   { name: "iPhone", path: "iphone" },
+  //   { name: "iPad", path: "ipad" },
+  //   { name: "Mac", path: "mac" },
+  //   { name: "AirPods", path: "air-pods" },
+  //   { name: "Watch", path: "watch" },
+  // ];
 
   const logoIconPath = "../../../logo/apple.svg";
 
@@ -23,7 +23,7 @@ function Navbar() {
   const cartIconPath = !!itemCount ? cartFullIconPath : cartEmptyIconPath ;
 
   return (
-    <NavbarTemplate logoIconPath={logoIconPath} theme={theme} categories={categories}>
+    <NavbarTemplate logoIconPath={logoIconPath} theme={theme} categories={globalCategories}>
       <CartWidget theme={theme} itemCount={itemCount} iconPath={cartIconPath}/>
     </NavbarTemplate>
   )

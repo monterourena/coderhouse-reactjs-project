@@ -4,8 +4,8 @@ import "./ProductInCart.css";
 function ProductInCartTemplate({ productInCart, currency, quantitySelected, optionsList, onChange, onRemove }) {
   return (
     <div className="ProductInCart">
-      <img className="ProductInCart--Picture" src={productInCart.picture} alt="" />
-      <div className="productInCartContainer">
+      <img className="ProductInCart--Picture" src={productInCart.pictures.featured} alt="" />
+      <div className="ProductInCartContainer">
         <div className="Detail--Title">{productInCart.title}</div>
         <div className="Detail--Description">{productInCart.description}</div>
       </div>

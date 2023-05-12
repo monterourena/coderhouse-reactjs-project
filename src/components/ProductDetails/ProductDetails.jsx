@@ -1,44 +1,47 @@
 import React from "react";
 import "./ProductDetails.css";
 
-
-function ProductDetails({subtotalItem,onSelection, product, variations, children }) {
-
-  // !Esto tiene que venir del Global Context
-  const currencySymbol = "$";
-
-  // TODO: Mover el render a un <ProductDetailsTemplate/>
-  // TODO: Pasar al componente <ProductDetailsTemplate/> un children que será un componente <ProductVariationCard/>
-  // TODO: el componente <ProductVariationCard/> recibirá por props 
-  // todos los valores necesarios para actualizar el estado "variationsInCartInfo" del CartContext
-
-  
-
+function ProductDetails({
+  subtotalItem,
+  onSelection,
+  globalCurrency,
+  models,
+  children,
+  selectedModelIndex,
+  picture
+  }) {
+    
   return (
     <div className="ProductDetail">
-      <img
-        className="ProductDetail--Picture"
-        src={product.productPictures.featured}
-        alt="Product Details"
-      />
+      <div className="ProductDetail--PictureContainer">
+        <img
+          className="ProductDetail--Picture"
+          src={picture}
+          alt="Product Details"
+        />
+      </div>
       <div className="ProductDetail--SidePanelContainer">
         <div className="SidePanel--Header">Model. Which is best for you?</div>
-        <div className="SidePanel--Variations">
-          {variations.map((variation, index) => (
-            <div onClick={()=>onSelection(variation)} key={index} className="ProductVariationContainer">
-              <div className="ProductVariation--Details">
-                <div className="ProductVariation--Title">{variation.title}</div>
-                <div className="ProductVariation--Description">
-                  {variation.description}
-                </div>
+        <div className="SidePanel--Models">
+          {models.map((model, index) => (
+            <div
+              onClick={() => onSelection(model, index)}
+              key={index}
+              className={`ModelContainer ${
+                selectedModelIndex === index ? "selected" : ""
+              }`}
+            >
+              <div className="Model--Details">
+                <div className="Model--Title">{model.title}</div>
+                <div className="Model--Description">{model.description}</div>
               </div>
-              <div className="ProductVariation--Price">{`${currencySymbol}${variation.price}`}</div>
+              <div className="Model--Price">{`${globalCurrency.symbol}${model.price}`}</div>
             </div>
           ))}
         </div>
         <div className="SidePanel--TotalDetails">
           <p className="TotalDetails--SubtotalTitle">Subtotal</p>
-          <p className="TotalDetails--SubtotalValue">{`${currencySymbol}${subtotalItem}`}</p>
+          <p className="TotalDetails--SubtotalValue">{`${globalCurrency.symbol}${subtotalItem}`}</p>
         </div>
         {children}
       </div>
