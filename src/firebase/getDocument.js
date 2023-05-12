@@ -17,7 +17,7 @@ const getCategoriesFromFirestore = async () => {
 
 const getModelsFromFirestore = async () => {
   const data = await getDocs(modelsCollectionRef);
-  return data.docs.map((doc) => ({ ...doc.data(), mid: doc.id }));
+  return data.docs.map((doc) => ({ ...doc.data(), modelsId: doc.id }));
 };
 
 export {

@@ -103,8 +103,8 @@ function ProductScreen() {
 
   // Set the available models for the current product based on product's modelsId
   useEffect(() => {
-    const modelId = currentProduct?.modelsId;
-    const models = (globalModels.find((model) => model.mid == modelId))
+    const currentModelsId = currentProduct?.modelsId;
+    const models = (globalModels.find((models) => models.modelsId == currentModelsId))
     setCurrentModels(models);
 
     // Default selected model
@@ -116,7 +116,7 @@ function ProductScreen() {
   const onAddToCard = () => {
     setProductsInCart([
       ...productsInCart,
-      { ...selectedModel, quantitySelected: productCounter },
+      { ...selectedModel, quantitySelected: productCounter, pid:currentProduct.pid, modelIndex:selectedModelIndex },
     ]);
     setAddToCartClicked(true);
     setGlobalCartCount(globalCartCount + productCounter);

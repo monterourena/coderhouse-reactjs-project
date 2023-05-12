@@ -21,7 +21,7 @@ function ProductInCart({ productInCart, currency }) {
   };
 
   const onRemove = (productInCart) => {
-    const updatedProducts = productsInCart.filter((product)=>product.pid !== productInCart.pid || product.vid !== productInCart.vid)
+    const updatedProducts = productsInCart.filter((product)=>product.pid !== productInCart.pid || product.modelIndex !== productInCart.modelIndex)
     setProductsInCart([...updatedProducts]);
   };
 
