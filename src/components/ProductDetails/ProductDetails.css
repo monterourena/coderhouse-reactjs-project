@@ -10,11 +10,13 @@
   justify-content: center;
   align-items: center;
   height: 590px;
+  background-color: #f5f5f7;
+  border-radius: 32px;
 
 }
 
 .ProductDetail--Picture {
-  width: 100%;
+  width: 80%;
   object-fit: contain;
   border-radius: 16px;
   max-height: 480px;
