@@ -1,6 +1,6 @@
 import React from "react";
 
-function useUpdateCartContext(productsInCart) {
+function updateCartContext(productsInCart) {
   let subtotal = 0;
   let estimatedTax = 0;
   let total = 0;
@@ -16,4 +16,4 @@ function useUpdateCartContext(productsInCart) {
   return { subtotal, estimatedTax, total, itemsInCart };
 }
 
-export default useUpdateCartContext;
+export default updateCartContext;

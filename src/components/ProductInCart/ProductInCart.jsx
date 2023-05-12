@@ -1,5 +1,5 @@
 import { useCartContext } from "../../contexts/CartContextProvider";
-import useSetProductQuantity from "../../hooks/useSetProductQuantity";
+import setProductQuantity from "../../utils/setProductQuantity";
 import ProductInCartTemplate from "./ProductInCartTemplate";
 
 function ProductInCart({ productInCart, currency }) {
@@ -13,7 +13,7 @@ function ProductInCart({ productInCart, currency }) {
       quantitySelected: parseInt(event.target.value),
     };
 
-    const updatedProducts = useSetProductQuantity({
+    const updatedProducts = setProductQuantity({
       updatedProduct,
       productsInCart,
     });

@@ -4,7 +4,7 @@ import ProductsInCartWidged from "../../components/ProductsInCartWidget/Products
 import CheckoutWidget from "../../components/CheckoutWidget/CheckoutWidget";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
-import useUpdateCartContext from "../../hooks/useUpdateCartContext";
+import updateCartContext from "../../utils/updateCartContext";
 
 function CartScreen() {
   const {
@@ -23,7 +23,7 @@ function CartScreen() {
 
   useEffect(() => {
     const { subtotal, estimatedTax, total, itemsInCart } =
-      useUpdateCartContext(productsInCart);
+      updateCartContext(productsInCart);
       
     setGlobalCartCount(itemsInCart);
     setSubtotal(subtotal);

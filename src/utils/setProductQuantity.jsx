@@ -1,9 +1,9 @@
 import React from "react";
 
-function useSetProductQuantity({ updatedProduct, productsInCart }) {
+function setProductQuantity({ updatedProduct, productsInCart }) {
   const productIndex = productsInCart.findIndex((product) => {
     return (
-      product.pid === updatedProduct.pid && product.vid === updatedProduct.vid
+      product.pid === updatedProduct.pid && product.modelIndex === updatedProduct.modelIndex
     );
   });
 
@@ -12,4 +12,4 @@ function useSetProductQuantity({ updatedProduct, productsInCart }) {
   return productsInCart;
 }
 
-export default useSetProductQuantity;
+export default setProductQuantity;
