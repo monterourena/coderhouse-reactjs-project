@@ -91,6 +91,7 @@ function ProductScreen() {
   const [subtotalItem, setSubtotalItem] = useState(0);
   const [productCounter, setProductCounter] = useState(1);
   const [addToCartClicked, setAddToCartClicked] = useState(false);
+  const [modelPicture, setModelPicture] = useState("")
 
 
   // Set the current product based on endpoint params
@@ -110,6 +111,7 @@ function ProductScreen() {
     // Default selected model
     const defaultModel = models?.payload[0] || {}
     setSelectedModel(defaultModel)
+    setModelPicture(defaultModel?.pictures?.featured)
   }, [currentProduct]);
   
 
@@ -125,6 +127,7 @@ function ProductScreen() {
   const onSelection = (model,index) => {
     setSelectedModelIndex(index)
     setSelectedModel(model);
+    setModelPicture(model?.pictures?.featured)
   };
 
   useEffect(() => {
@@ -149,7 +152,7 @@ function ProductScreen() {
         onSelection={onSelection}
         selectedModelIndex={selectedModelIndex}
         globalCurrency={globalCurrency}
-        
+        picture={modelPicture}
       >
         <ProductActionButtons
           onAddToCard={onAddToCard}

@@ -8,15 +8,18 @@ function ProductDetails({
   models,
   children,
   selectedModelIndex,
+  picture
   }) {
     
   return (
     <div className="ProductDetail">
-      <img
-        className="ProductDetail--Picture"
-        src={"../../../demo/product/iphone-14/iphone-14-detail.jpg"}
-        alt="Product Details"
-      />
+      <div className="ProductDetail--PictureContainer">
+        <img
+          className="ProductDetail--Picture"
+          src={picture}
+          alt="Product Details"
+        />
+      </div>
       <div className="ProductDetail--SidePanelContainer">
         <div className="SidePanel--Header">Model. Which is best for you?</div>
         <div className="SidePanel--Models">
