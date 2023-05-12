@@ -13,13 +13,13 @@
 }
 
 .NavbarContainer--dark{
-    background: rgba(44, 44, 46, 0.6);
-    backdrop-filter: blur(13.59px);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(60px);
 }
 
 .NavbarContainer--light{
-    background: rgba(116, 116, 128, 0.18);
-    backdrop-filter: blur(13.59px);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(60px);
 }
 
 .NavbarIcon_Container{
