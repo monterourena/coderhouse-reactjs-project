@@ -6,6 +6,7 @@
     align-items: center;
     padding-top: 62px;
     height: 480px;
+    min-width: 400px;
 }
 
 .TileCard--light{
@@ -24,5 +25,5 @@
 .TilePicture{
    width: 90%;
    max-width: 800px;
-   max-height: 300px;
+   max-height: 250px;
 }

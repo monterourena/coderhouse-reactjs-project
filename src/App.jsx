@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+
 
 // Components
 import Navbar from "./components/NavBar/NavBar";
@@ -14,6 +14,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 // Context
 import { GlobalContextProvider } from "./contexts/GlobalContextProvider";
 import { CartContextProvider } from "./contexts/CartContextProvider";
+import { ShowToast } from "./utils/ShowToast";
 
 function App() {
   <ScrollToTop component={<CategoryScreen />} />;
@@ -50,6 +51,8 @@ function App() {
           <Footer />
         </CartContextProvider>
       </GlobalContextProvider>
+
+      <ShowToast/>
     </BrowserRouter>
   );
 }

@@ -40,7 +40,7 @@ function CategoryScreen() {
     theme:categoryTheme,
     title:featuredProduct?.title,
     phrase:featuredProduct?.catchline,
-    picture:"../../../demo/tiles/ipad-air.png",
+    picture:featuredProduct?.productPictures?.featured,
     linksEnabled : false
   }
   const carouselContent = {

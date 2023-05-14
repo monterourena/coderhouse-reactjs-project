@@ -1,5 +1,3 @@
-import React from "react";
-
 function setProductQuantity({ updatedProduct, productsInCart }) {
   const productIndex = productsInCart.findIndex((product) => {
     return (

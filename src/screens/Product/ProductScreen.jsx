@@ -5,6 +5,8 @@ import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import ProductActionButtons from "../../components/ProductActionButtons/ProductActionButtons";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
+import { addProductToCart } from "../../utils/addProductToCart";
+import updateCartContext from "../../utils/updateCartContext";
 
 const product = {
   pid: 0,
@@ -21,56 +23,8 @@ const product = {
     ],
   },
 };
-const variationsForThisProduct = [
-  {
-    pid: 0,
-    vid: 0,
-    title: "iPhone 14 Pro",
-    description: "128 Gb",
-    price: 999,
-    stock: 10,
-    picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-  },
-  {
-    pid: 0,
-    vid: 1,
-    title: "iPhone 14 Pro",
-    description: "256 Gb",
-    price: 1099,
-    stock: 10,
-    picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-  },
-  {
-    pid: 0,
-    vid: 2,
-    title: "iPhone 14 Pro Max",
-    description: "128 Gb",
-    price: 1999,
-    stock: 10,
-    picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-  },
-  {
-    pid: 0,
-    vid: 3,
-    title: "iPhone 14 Pro Max",
-    description: "259 Gb",
-    price: 2499,
-    stock: 10,
-    picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-  },
-  {
-    pid: 0,
-    vid: 4,
-    title: "iPhone 14 Pro Max",
-    description: "1 Tb",
-    price: 3899,
-    stock: 10,
-    picture: "../../../demo/product/iphone-14/iphone-14-detail.jpg",
-  },
-];
 
 function ProductScreen() {
-  
   //Params and contexts
   const { key } = useParams();
   const {
@@ -87,57 +41,62 @@ function ProductScreen() {
   const [currentProduct, setCurrentProduct] = useState({});
   const [currentModels, setCurrentModels] = useState([]);
   const [selectedModel, setSelectedModel] = useState({});
-  const [selectedModelIndex, setSelectedModelIndex] = useState(0)
+  const [selectedModelIndex, setSelectedModelIndex] = useState(0);
   const [subtotalItem, setSubtotalItem] = useState(0);
   const [productCounter, setProductCounter] = useState(1);
   const [addToCartClicked, setAddToCartClicked] = useState(false);
-  const [modelPicture, setModelPicture] = useState("")
-
+  const [modelPicture, setModelPicture] = useState("");
 
   // Set the current product based on endpoint params
   useEffect(() => {
     setGlobalTheme("light");
-    const product = globalProducts.find((product) => product.key === key)
+    const product = globalProducts.find((product) => product.key === key);
     setCurrentProduct(product);
   }, [globalProducts]);
-
 
   // Set the available models for the current product based on product's modelsId
   useEffect(() => {
     const currentModelsId = currentProduct?.modelsId;
-    const models = (globalModels.find((models) => models.modelsId == currentModelsId))
+    const models = globalModels.find(
+      (models) => models.modelsId == currentModelsId
+    );
     setCurrentModels(models);
 
     // Default selected model
-    const defaultModel = models?.payload[0] || {}
-    setSelectedModel(defaultModel)
-    setModelPicture(defaultModel?.pictures?.featured)
+    const defaultModel = models?.payload[0] || {};
+    setSelectedModel(defaultModel);
+    setModelPicture(defaultModel?.pictures?.featured);
   }, [currentProduct]);
-  
 
   const onAddToCard = () => {
-    setProductsInCart([
-      ...productsInCart,
-      { ...selectedModel, quantitySelected: productCounter, pid:currentProduct.pid, modelIndex:selectedModelIndex },
-    ]);
+    const productToBeAdded = {
+      ...selectedModel,
+      quantitySelected: productCounter,
+      pid: currentProduct.pid,
+      modelIndex: selectedModelIndex,
+    };
+    const cartUpdated = addProductToCart({ productToBeAdded, productsInCart });
+    setProductsInCart(cartUpdated);
     setAddToCartClicked(true);
-    setGlobalCartCount(globalCartCount + productCounter);
+
+    const {itemsInCart} = updateCartContext(cartUpdated)
+    setGlobalCartCount(itemsInCart);
   };
 
-  const onSelection = (model,index) => {
-    setSelectedModelIndex(index)
+  const onSelection = (model, index) => {
+    setSelectedModelIndex(index);
     setSelectedModel(model);
-    setModelPicture(model?.pictures?.featured)
+    setModelPicture(model?.pictures?.featured);
   };
 
   useEffect(() => {
     setSubtotalItem(selectedModel?.price * productCounter);
   }, [productCounter, selectedModel]);
 
-  if(!currentModels?.payload){
-    return ""
+  if (!currentModels?.payload) {
+    return "";
   }
-  
+
   return (
     <ViewWithHeader
       title={`Buy ${currentProduct.title}`}
