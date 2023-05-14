@@ -7,6 +7,7 @@ import HomeScreen from "./screens/Home/HomeScreen";
 import CategoryScreen from "./screens/Category/CategoryScreen";
 import ProductScreen from "./screens/Product/ProductScreen";
 import CartScreen from "./screens/Cart/CartScreen";
+import OrderScreen from "./screens/Order/OrderScreen";
 import Footer from "./components/Footer/Footer"
 import ScrollToTop from "./utils/ScrollToTop";
 
@@ -43,7 +44,7 @@ function App() {
             />
             <Route
               path="/order/:oid"
-              element={<ScrollToTop component={<HomeScreen />} />}
+              element={<ScrollToTop component={<OrderScreen />} />}
             />
             {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Routes>

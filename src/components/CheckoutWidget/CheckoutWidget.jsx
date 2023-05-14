@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import "./CheckoutWidget.css";
 import CheckoutWidgetTemplate from "./CheckoutWidgetTemplate";
-import { useCartContext } from "../../contexts/CartContextProvider";
+import { generateOrder } from "../../firebase/setPurchaseOrder";
 
-function CheckoutWidget({ total, subtotal, estimatedTax, globalCartCount, productsInCart, setProductsInCart }) {
-
+function CheckoutWidget({
+  total,
+  subtotal,
+  estimatedTax,
+  globalCartCount,
+  productsInCart,
+  setProductsInCart,
+}) {
   const [isCheckout, setIsCheckout] = useState(true);
-
+  const navigate = useNavigate();
   // Form is disabled if there are no items in the cart
   useEffect(() => {
     if (!globalCartCount) {
@@ -20,35 +27,13 @@ function CheckoutWidget({ total, subtotal, estimatedTax, globalCartCount, produc
     }
   };
 
-  const onClickConfirm = (formFata) => {
-    const date = new Date();
-    const {
-      inputEmail: email,
-      inputLastName: lastName,
-      inputName: name,
-      inputPhone: phone,
-    } = formFata;
+  const onClickConfirm = async (formData) => {
+    const price = { total, subtotal, estimatedTax };
+    const orderId = await generateOrder({ formData, price, productsInCart });
 
-    const purchaseOrder = {
-      orderId: "agd89h2uibhd7",
-      state:"generated",
-      userData:{
-        email,
-        lastName,
-        name,
-        phone,
-      },
-      price:{
-        total, 
-        subtotal, 
-        estimatedTax
-      },
-      products: productsInCart,
-      date: date.toUTCString(),
-    };
-    console.log("Purchase Order: ", purchaseOrder);
     setIsCheckout(!isCheckout);
     setProductsInCart([]);
+    navigate(`/order/${orderId}`);
   };
 
   const currency = { code: "USD", symbol: "$" };
