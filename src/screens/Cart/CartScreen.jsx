@@ -15,18 +15,18 @@ function CartScreen() {
     globalCurrency: currency,
   } = useGlobalContext();
 
-  const { total, subtotal, estimatedTax, productsInCart } = useCartContext();
+  const { total, subtotal, estimatedTax, productsInCart, setProductsInCart } = useCartContext();
   const { setTotal, setSubtotal, setEstimatedTax } = useCartContext();
 
   useEffect(() => {
     setGlobalTheme("light");
-    setGlobalFooterTheme("light")
+    setGlobalFooterTheme("light");
   }, []);
 
   useEffect(() => {
     const { subtotal, estimatedTax, total, itemsInCart } =
       updateCartContext(productsInCart);
-      
+
     setGlobalCartCount(itemsInCart);
     setSubtotal(subtotal);
     setTotal(total);
@@ -46,6 +46,8 @@ function CartScreen() {
         total={total}
         currency={currency}
         globalCartCount={globalCartCount}
+        productsInCart={productsInCart}
+        setProductsInCart={setProductsInCart}
       />
     </ViewWithHeader>
   );

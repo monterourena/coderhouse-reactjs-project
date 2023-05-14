@@ -3,8 +3,7 @@ import "./CheckoutWidget.css";
 import CheckoutWidgetTemplate from "./CheckoutWidgetTemplate";
 import { useCartContext } from "../../contexts/CartContextProvider";
 
-function CheckoutWidget({ total, subtotal, estimatedTax, globalCartCount }) {
-  const { setProductsInCart } = useCartContext();
+function CheckoutWidget({ total, subtotal, estimatedTax, globalCartCount, productsInCart, setProductsInCart }) {
 
   const [isCheckout, setIsCheckout] = useState(true);
 
@@ -22,7 +21,32 @@ function CheckoutWidget({ total, subtotal, estimatedTax, globalCartCount }) {
   };
 
   const onClickConfirm = (formFata) => {
-    console.log(formFata);
+    const date = new Date();
+    const {
+      inputEmail: email,
+      inputLastName: lastName,
+      inputName: name,
+      inputPhone: phone,
+    } = formFata;
+
+    const purchaseOrder = {
+      orderId: "agd89h2uibhd7",
+      state:"generated",
+      userData:{
+        email,
+        lastName,
+        name,
+        phone,
+      },
+      price:{
+        total, 
+        subtotal, 
+        estimatedTax
+      },
+      products: productsInCart,
+      date: date.toUTCString(),
+    };
+    console.log("Purchase Order: ", purchaseOrder);
     setIsCheckout(!isCheckout);
     setProductsInCart([]);
   };
