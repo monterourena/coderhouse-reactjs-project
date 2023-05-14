@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 function CategoryScreen() {
 
   const { cid } = useParams();
-  const {setGlobalTheme, globalProducts, globalCategories} = useGlobalContext();
+  const {setGlobalTheme, setGlobalFooterTheme, globalProducts, globalCategories} = useGlobalContext();
 
   const [products, setProducts] = useState(null)
   const [category, setCategory] = useState("dark")
@@ -16,6 +16,7 @@ function CategoryScreen() {
 
   useEffect(()=>{
     setGlobalTheme(categoryTheme);
+    setGlobalFooterTheme(categoryTheme)
   },[categoryTheme])
 
   useEffect(()=>{
@@ -45,7 +46,7 @@ function CategoryScreen() {
   }
   const carouselContent = {
     sectionTitle: category?.sectionSubtitle,
-    theme: "light",
+    theme: categoryTheme,
   };
 
   if(!products || !category){

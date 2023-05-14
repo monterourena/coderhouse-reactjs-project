@@ -29,7 +29,7 @@ function ProductScreen() {
   const { key } = useParams();
   const {
     setGlobalTheme,
-    globalCartCount,
+    setGlobalFooterTheme,
     setGlobalCartCount,
     globalProducts,
     globalModels,
@@ -50,6 +50,7 @@ function ProductScreen() {
   // Set the current product based on endpoint params
   useEffect(() => {
     setGlobalTheme("light");
+    setGlobalFooterTheme("light");
     const product = globalProducts.find((product) => product.key === key);
     setCurrentProduct(product);
   }, [globalProducts]);

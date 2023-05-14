@@ -13,6 +13,7 @@ function useGlobalContext() {
 
 function GlobalContextProvider({ children }) {
   const [globalTheme, setGlobalTheme] = useState("light");
+  const [globalFooterTheme, setGlobalFooterTheme] = useState("light");
   const [globalCartCount, setGlobalCartCount] = useState(0);
   const [globalCurrency, setGlobalCurrency] = useState({code:"USD",symbol:"$"})
   const [globalProducts, setGlobalProducts] = useState([])
@@ -35,6 +36,8 @@ function GlobalContextProvider({ children }) {
       value={{
         globalTheme,
         setGlobalTheme,
+        globalFooterTheme,
+        setGlobalFooterTheme,
         globalCartCount,
         setGlobalCartCount,
         globalCurrency,

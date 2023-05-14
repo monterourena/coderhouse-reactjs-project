@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-
 // Components
 import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
 import HomeScreen from "./screens/Home/HomeScreen";
 import CategoryScreen from "./screens/Category/CategoryScreen";
 import ProductScreen from "./screens/Product/ProductScreen";
 import CartScreen from "./screens/Cart/CartScreen";
+import Footer from "./components/Footer/Footer"
 import ScrollToTop from "./utils/ScrollToTop";
 
 // Context
@@ -48,11 +47,10 @@ function App() {
             />
             {/* <Route path="*" element={<Navigate to="/" />} /> */}
           </Routes>
-          <Footer />
+        <Footer/>
         </CartContextProvider>
       </GlobalContextProvider>
-
-      <ShowToast/>
+      <ShowToast />
     </BrowserRouter>
   );
 }

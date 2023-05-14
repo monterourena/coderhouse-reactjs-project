@@ -9,6 +9,7 @@ import updateCartContext from "../../utils/updateCartContext";
 function CartScreen() {
   const {
     setGlobalTheme,
+    setGlobalFooterTheme,
     setGlobalCartCount,
     globalCartCount,
     globalCurrency: currency,
@@ -19,6 +20,7 @@ function CartScreen() {
 
   useEffect(() => {
     setGlobalTheme("light");
+    setGlobalFooterTheme("light")
   }, []);
 
   useEffect(() => {

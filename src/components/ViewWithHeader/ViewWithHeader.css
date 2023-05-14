@@ -1,6 +1,8 @@
 .ViewWithHeader{
     padding: 48px 32px 0px 32px;
     display: grid;
+    height: calc(100vh - 144px);
+    min-height: 820px;
 }
 
 .Layout--Two{

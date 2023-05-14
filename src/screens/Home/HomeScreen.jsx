@@ -6,11 +6,12 @@ import TilesGallery from "../../components/TilesGallery/TilesGallery";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 
 function HomeScreen() {
-  const { setGlobalTheme, globalProducts } = useGlobalContext();
+  const { setGlobalTheme, setGlobalFooterTheme, globalProducts } = useGlobalContext();
   const [products, setProducts] = useState(null)
 
   useEffect(() => {
     setGlobalTheme("dark");
+    setGlobalFooterTheme("light")
   }, []);
 
   useEffect(()=>{
