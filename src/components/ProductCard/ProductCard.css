@@ -74,8 +74,8 @@
 }
 
 .Picture{
-  max-width: 200px;
-  object-fit: cover;
+
+  max-height: 150px;
 }
 
 .Price {

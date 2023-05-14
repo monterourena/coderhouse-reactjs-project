@@ -6,24 +6,26 @@ function ProductCard({ product, theme }) {
   const navigate = useNavigate();
 
   const handleRedirection = () => {
-      navigate(`/item/${product.key}`);
-  }
+    navigate(`/item/${product.key}`);
+  };
+
+  console.log("RENDERED PRODUCTO: ", product);
 
   return (
-
-  <div onClick={handleRedirection} className={`Card Card--${theme}`}>
-    <div className="ContentContainer--Text">
-      <div className={`ContentTitle ContentTitle--${theme}`}>{product.title}</div>
-      <div className={`ContentDescription ContentDescription--${theme}`}>{product.catchline}</div>
-    </div>
-    <div className="PictureContainer">
-        {/* <img className="Picture" src={product.productPictures.featured} alt="" /> */}
-        <img className="Picture" src={"../../../demo/carousel/ipad-pro.png"} alt="" />
-
+    <div onClick={handleRedirection} className={`Card Card--${theme}`}>
+      <div className="ContentContainer--Text">
+        <div className={`ContentTitle ContentTitle--${theme}`}>
+          {product.title}
+        </div>
+        <div className={`ContentDescription ContentDescription--${theme}`}>
+          {product.catchline}
+        </div>
       </div>
-    <div className="Price">{`From ${product.currency.symbol}${product.basePrice}`}</div>
-  </div>
-
+      <div className="PictureContainer">
+        <img className="Picture" src={product.productPictures.main} alt="" />
+      </div>
+      <div className="Price">{`From ${product.currency.symbol}${product.basePrice}`}</div>
+    </div>
   );
 }
 
@@ -33,8 +35,6 @@ export default ProductCard;
 //       description: "The ultimate iPad, 256 Gb storage, with M2 Max",
 //       picture: "./path/picture.png",
 //       price: 999,
-
-
 
 // {
 //   categoryKey: "mac",
