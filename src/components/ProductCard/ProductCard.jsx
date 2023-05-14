@@ -9,8 +9,6 @@ function ProductCard({ product, theme }) {
     navigate(`/item/${product.key}`);
   };
 
-  console.log("RENDERED PRODUCTO: ", product);
-
   return (
     <div onClick={handleRedirection} className={`Card Card--${theme}`}>
       <div className="ContentContainer--Text">

@@ -51,7 +51,7 @@ function HomeScreen() {
       picture: "../../../demo/tiles/ipad-air.png",
     },
     "macStudio":{
-      theme: "light",
+      theme: "dark",
       title: "Mac Studio",
       phrase: "Empower station.",
       primaryCtaViewPath: "/category/mac/",
@@ -67,12 +67,12 @@ function HomeScreen() {
       picture: "../../../demo/tiles/macbook-pro.png",
     },
     "iphoneSE":{
-      theme: "dark",
+      theme: "light",
       title: "iPhone SE",
       phrase: "Serious power. Serious value.",
       primaryCtaViewPath: "/category/iphone/",
       secondaryCtaViewPath: "/item/iphone-se/",
-      picture: "../../../demo/tiles/airpods-pro.png",
+      picture: "../../../demo/tiles/iphone-se.png",
     }
   };
 
