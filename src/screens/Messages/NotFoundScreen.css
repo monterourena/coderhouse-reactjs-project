@@ -4,17 +4,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
     gap: 48px;
 }
+.bg--dark{
+  background-color:  #000000;
+}
+
+.bg--light{
+  background-color: #ffffff;
+}
+
 .NotFoundScreen--Logo{
     height: 48px;
 }
+
+.color--light{
+  filter: invert(100%);
+}
+
 .NotFoundScreen--Title{
     font-size: 32px;
-    color: #ffff;
+
     max-width: 520px;
     text-align: center;
+}
+.title--light{
+  color: #000000;
+}
+
+.title--dark{
+  color: #ffffff;
 }
 
 .NotFoundScreen--Chevron {

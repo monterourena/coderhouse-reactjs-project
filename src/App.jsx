@@ -47,7 +47,7 @@ function App() {
               path="/order/:oid"
               element={<ScrollToTop component={<OrderScreen />} />}
             />
-            <Route path="*" element={<ScrollToTop component={<NotFoundScreen />} />} />
+            <Route path="*" element={<ScrollToTop component={<NotFoundScreen/>} />} />
           </Routes>
         <Footer/>
         </CartContextProvider>
