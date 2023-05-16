@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ViewWithHeader from "../../components/ViewWithHeader/ViewWithHeader";
-import ProductsInCartWidged from "../../components/ProductsInCartWidget/ProductsInCartWidget";
+import ProductsInCartWidget from "../../components/ProductsInCartWidget/ProductsInCartWidget";
 import CheckoutWidget from "../../components/CheckoutWidget/CheckoutWidget";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
@@ -39,7 +39,7 @@ function CartScreen() {
       description={"Free delivery and free returns."}
       rightPanel={true}
     >
-      <ProductsInCartWidged />
+      <ProductsInCartWidget />
       <CheckoutWidget
         subtotal={subtotal}
         estimatedTax={estimatedTax}

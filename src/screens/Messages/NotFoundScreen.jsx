@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import "./NotFoundScreen.css";
 
-function NotFoundScreen({theme, title, ctaMessage}) {
+function NotFoundScreen({theme, title, ctaMessage, fullScreen}) {
   const { setGlobalTheme, setGlobalFooterTheme } = useGlobalContext();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function NotFoundScreen({theme, title, ctaMessage}) {
   const handleRedirection = () => navigate("/");
 
   return (
-    <section className={`NotFoundScreen bg--${theme}`}>
+    <section className={`NotFoundScreen bg--${theme} ${fullScreen? "FullScreen":"InView"}`}>
       <img
         className={`NotFoundScreen--Logo color--${theme}`}
         src="../../../logo/apple.svg"
@@ -43,7 +43,8 @@ function NotFoundScreen({theme, title, ctaMessage}) {
 NotFoundScreen.defaultProps={
   theme:"light",
   title: "The page you're looking for can't be found.",
-  ctaMessage:"See all our products"
+  ctaMessage:"See all our products",
+  fullScreen: true
 }
 
 export default NotFoundScreen;

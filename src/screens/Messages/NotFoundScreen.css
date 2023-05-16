@@ -1,11 +1,20 @@
 .NotFoundScreen {
-  height: calc(100vh - 144px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 48px;
 }
+
+.FullScreen{
+  height: calc(100vh - 144px);
+}
+
+.InView{
+  padding-top: 80px;
+  height: 100%;
+}
+
 .bg--dark {
   background-color: #000000;
 }
