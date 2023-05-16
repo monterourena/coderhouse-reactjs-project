@@ -1,0 +1,35 @@
+.NotFoundScreen{
+    height: calc(100vh - 144px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    gap: 48px;
+}
+.NotFoundScreen--Logo{
+    height: 48px;
+}
+.NotFoundScreen--Title{
+    font-size: 32px;
+    color: #ffff;
+    max-width: 520px;
+    text-align: center;
+}
+
+.NotFoundScreen--Chevron {
+  filter: invert(43%) sepia(56%) saturate(7181%) hue-rotate(200deg)
+    brightness(102%) contrast(105%);
+    height: 16px;
+}
+
+.NotFoundScreen--LinkContainer {
+  all: unset;
+  cursor: pointer;
+  color: #007aff;
+  font-size: 24px;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

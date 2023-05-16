@@ -28,22 +28,3 @@ function ProductCard({ product, theme }) {
 }
 
 export default ProductCard;
-
-// title: "iPad Air",
-//       description: "The ultimate iPad, 256 Gb storage, with M2 Max",
-//       picture: "./path/picture.png",
-//       price: 999,
-
-// {
-//   categoryKey: "mac",
-//   key: "macbook-pro",
-//   title: "MacBook Pro",
-//   catchline: "Mover. Maker. Boundary breaker.",
-//   description: "Supercharged by M2 chip, Up to 20 hrs battery life",
-//   basePrice: 1299,
-//   currency: { code: "USD", symbol: "$" },
-//   modelsId: "3WqIwqP1CeIi6fff6JVY",
-//   productPictures: {
-//     featured: "",
-//     gallery: [""],
-//   },

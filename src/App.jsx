@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 // Components
@@ -15,6 +15,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { GlobalContextProvider } from "./contexts/GlobalContextProvider";
 import { CartContextProvider } from "./contexts/CartContextProvider";
 import { ShowToast } from "./utils/ShowToast";
+import NotFoundScreen from "./screens/Messages/NotFoundScreen";
 
 function App() {
   <ScrollToTop component={<CategoryScreen />} />;
@@ -46,7 +47,7 @@ function App() {
               path="/order/:oid"
               element={<ScrollToTop component={<OrderScreen />} />}
             />
-            {/* <Route path="*" element={<Navigate to="/" />} /> */}
+            <Route path="*" element={<ScrollToTop component={<NotFoundScreen />} />} />
           </Routes>
         <Footer/>
         </CartContextProvider>
