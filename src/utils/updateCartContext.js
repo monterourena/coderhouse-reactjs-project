@@ -1,5 +1,3 @@
-import React from "react";
-
 function updateCartContext(productsInCart) {
   let subtotal = 0;
   let estimatedTax = 0;
