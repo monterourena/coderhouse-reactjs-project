@@ -42,7 +42,7 @@ function NotFoundScreen({theme, title, ctaMessage}) {
 
 NotFoundScreen.defaultProps={
   theme:"light",
-  title: "Sorry! The page you're looking for can't be found.",
+  title: "The page you're looking for can't be found.",
   ctaMessage:"See all our products"
 }
 

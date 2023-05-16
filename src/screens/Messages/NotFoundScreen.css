@@ -1,45 +1,45 @@
-.NotFoundScreen{
-    height: calc(100vh - 144px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
+.NotFoundScreen {
+  height: calc(100vh - 144px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
 }
-.bg--dark{
-  background-color:  #000000;
+.bg--dark {
+  background-color: #000000;
 }
 
-.bg--light{
+.bg--light {
   background-color: #ffffff;
 }
 
-.NotFoundScreen--Logo{
-    height: 48px;
+.NotFoundScreen--Logo {
+  height: 48px;
 }
 
-.color--light{
+.color--light {
   filter: invert(100%);
 }
 
-.NotFoundScreen--Title{
-    font-size: 32px;
-
-    max-width: 520px;
-    text-align: center;
+.NotFoundScreen--Title {
+  font-size: 32px;
+  max-width: 520px;
+  text-align: center;
+  line-height: 56px;
 }
-.title--light{
+.title--light {
   color: #000000;
 }
 
-.title--dark{
+.title--dark {
   color: #ffffff;
 }
 
 .NotFoundScreen--Chevron {
   filter: invert(43%) sepia(56%) saturate(7181%) hue-rotate(200deg)
     brightness(102%) contrast(105%);
-    height: 16px;
+  height: 16px;
 }
 
 .NotFoundScreen--LinkContainer {

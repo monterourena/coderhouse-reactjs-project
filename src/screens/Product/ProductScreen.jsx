@@ -7,6 +7,7 @@ import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 import { useCartContext } from "../../contexts/CartContextProvider";
 import { addProductToCart } from "../../utils/addProductToCart";
 import updateCartContext from "../../utils/updateCartContext";
+import NotFoundScreen from "../Messages/NotFoundScreen";
 
 const product = {
   pid: 0,
@@ -34,6 +35,7 @@ function ProductScreen() {
     globalProducts,
     globalModels,
     globalCurrency,
+    loadingGlobalProducts
   } = useGlobalContext();
   const { productsInCart, setProductsInCart } = useCartContext();
 
@@ -93,6 +95,16 @@ function ProductScreen() {
   useEffect(() => {
     setSubtotalItem(selectedModel?.price * productCounter);
   }, [productCounter, selectedModel]);
+
+
+  if (!loadingGlobalProducts && !currentProduct) {
+    return (
+      <NotFoundScreen
+        theme="light"
+        title="The product you're looking for can't be found."
+      />
+    );
+  }
 
   if (!currentModels?.payload) {
     return "";

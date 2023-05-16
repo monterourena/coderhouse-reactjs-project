@@ -19,6 +19,8 @@ function GlobalContextProvider({ children }) {
   const [globalProducts, setGlobalProducts] = useState([])
   const [globalCategories, setGlobalCategories] = useState([])
   const [globalModels, setGlobalModels] = useState([])
+  const [loadingGlobalCategories, setLoadingGlobalCategories] = useState(true)
+  const [loadingGlobalProducts, setLoadingGlobalProducts] = useState(true)
 
   useEffect(()=>{
     (async()=>{
@@ -31,6 +33,13 @@ function GlobalContextProvider({ children }) {
       setGlobalModels(models)
     })()
   },[])  
+
+  useEffect(()=>{
+    if(globalCategories !== []) setLoadingGlobalCategories(false)
+    if(globalProducts !== []) setLoadingGlobalProducts(false)
+  },[globalCategories, globalProducts])
+
+
   return (
     <GlobalContext.Provider
       value={{
@@ -44,7 +53,9 @@ function GlobalContextProvider({ children }) {
         setGlobalCurrency,
         globalProducts,
         globalCategories,
-        globalModels
+        globalModels,
+        loadingGlobalProducts,
+        loadingGlobalCategories
       }}
     >
       {children}
