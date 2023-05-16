@@ -1,7 +1,8 @@
 # Apple Store - Coderhouse project
 This is an e-commerce website built completely from scratch using React JS and a curated and finely selected collection of data managed and stored using firebase Storage and Firestore services. The final design is largely inspired by the current design of the Apple website. All the product information, images, and graphics have been obtained from www.apple.com.
 
-![787shots_so](https://github.com/monterourena/coderhouse-reactjs-project/assets/117543842/6bca095e-c67b-4669-bc13-7def8f40aef5)
+![68shots_so](https://github.com/monterourena/coderhouse-reactjs-project/assets/117543842/b7bdd777-0cb3-4821-bfe1-aa4714aec002)
+
 
 
 # Features
