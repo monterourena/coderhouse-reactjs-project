@@ -1,0 +1,31 @@
+
+
+.OrderProductsDisplay--Header{
+    background-color: #F5F5F7;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    height: 32px;
+    padding: 0px 32px;
+    height: 48px;
+}
+.OrderProductsDisplay--HeaderTitle{
+    justify-self: start;
+    align-self: center;
+    font-size: 24px;
+}
+
+.OrderProductsDisplay--HeaderSubtitle{
+    justify-self: end;
+    align-self: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #777777;
+}
+
+
+.OrderProductsDisplay--ProductsContainer{
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}

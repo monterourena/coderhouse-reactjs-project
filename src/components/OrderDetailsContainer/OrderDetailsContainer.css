@@ -1,0 +1,43 @@
+.OrderDetailsContainer{
+ min-height: calc(100vh - 144px);
+ padding: 80px;
+ min-width: 920px;
+}
+
+.Orderheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.OrderHeader--LeftColumn{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+}
+
+.OrderHeader--RightColumn{
+    display: flex;
+    align-items: center;
+    text-align: end;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.OrderHeaderLogo{
+    filter: invert(100%);
+    height: 32px;
+    position: relative;
+    top: -4px;
+}
+
+.OrderHeaderTitle{
+    font-weight: 590;
+    font-size: 32px;
+}
+
+.OrderDetailsBodyContainer{
+    margin-top: 16px;
+}
