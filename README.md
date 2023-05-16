@@ -11,6 +11,7 @@ This e-commerce website has the following features:
 - Browse products by category.
 - View product details, including product description, price, and available models.
 - Add products to cart and update cart quantities.
+- Persistence of cart products using local storage
 - Checkout process.
 - Order review.
 
