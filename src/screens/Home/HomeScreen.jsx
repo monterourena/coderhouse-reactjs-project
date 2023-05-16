@@ -7,6 +7,7 @@ import { useGlobalContext } from "../../contexts/GlobalContextProvider";
 
 function HomeScreen() {
   const { setGlobalTheme, setGlobalFooterTheme, globalProducts } = useGlobalContext();
+
   const [products, setProducts] = useState(null)
 
   useEffect(() => {
@@ -18,6 +19,7 @@ function HomeScreen() {
     const products = globalProducts;
     setProducts(products)
   },[globalProducts])
+
 
   const featuredProductA = {
     theme: "dark",

@@ -8,7 +8,7 @@ import CategoryScreen from "./screens/Category/CategoryScreen";
 import ProductScreen from "./screens/Product/ProductScreen";
 import CartScreen from "./screens/Cart/CartScreen";
 import OrderScreen from "./screens/Order/OrderScreen";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./utils/ScrollToTop";
 
 // Context
@@ -16,6 +16,7 @@ import { GlobalContextProvider } from "./contexts/GlobalContextProvider";
 import { CartContextProvider } from "./contexts/CartContextProvider";
 import { ShowToast } from "./utils/ShowToast";
 import NotFoundScreen from "./screens/Messages/NotFoundScreen";
+import UpdateCartCount from "./contexts/UpdateCartCount";
 
 function App() {
   <ScrollToTop component={<CategoryScreen />} />;
@@ -24,32 +25,37 @@ function App() {
     <BrowserRouter>
       <GlobalContextProvider>
         <CartContextProvider>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={<ScrollToTop component={<HomeScreen />} />}
-            />
-            <Route
-              path="/category/:cid"
-              element={<ScrollToTop component={<CategoryScreen />} />}
-            />
-            <Route
-              path="/item/:key"
-              element={<ScrollToTop component={<ProductScreen />} />}
-            />
+          <UpdateCartCount>
+            <Navbar />
+            <Routes>
+              <Route
+                path="/"
+                element={<ScrollToTop component={<HomeScreen />} />}
+              />
+              <Route
+                path="/category/:cid"
+                element={<ScrollToTop component={<CategoryScreen />} />}
+              />
+              <Route
+                path="/item/:key"
+                element={<ScrollToTop component={<ProductScreen />} />}
+              />
 
-            <Route
-              path="/cart"
-              element={<ScrollToTop component={<CartScreen />} />}
-            />
-            <Route
-              path="/order/:oid"
-              element={<ScrollToTop component={<OrderScreen />} />}
-            />
-            <Route path="*" element={<ScrollToTop component={<NotFoundScreen/>} />} />
-          </Routes>
-        <Footer/>
+              <Route
+                path="/cart"
+                element={<ScrollToTop component={<CartScreen />} />}
+              />
+              <Route
+                path="/order/:oid"
+                element={<ScrollToTop component={<OrderScreen />} />}
+              />
+              <Route
+                path="*"
+                element={<ScrollToTop component={<NotFoundScreen />} />}
+              />
+            </Routes>
+          </UpdateCartCount>
+          <Footer />
         </CartContextProvider>
       </GlobalContextProvider>
       <ShowToast />

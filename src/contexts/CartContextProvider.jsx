@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 const CartContext = createContext();
 
@@ -10,10 +11,19 @@ function useCartContext() {
 
 
 function CartContextProvider({ children }) {
-  const [productsInCart, setProductsInCart] = useState([]);
+
+  const initialCart = getLocalStorage("cart")
+  const [productsInCart, setProductsInCart] = useState(initialCart);
   const [subtotal, setSubtotal] = useState(1010);
   const [estimatedTax, setEstimatedTax] = useState(230);
   const [total, setTotal] = useState(1240);
+
+  useEffect(()=>{
+    setLocalStorage("cart", productsInCart)
+  },[productsInCart])
+
+
+
   
   return (
     <CartContext.Provider

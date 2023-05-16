@@ -82,8 +82,8 @@ function ProductScreen() {
     setProductsInCart(cartUpdated);
     setAddToCartClicked(true);
 
-    const {itemsInCart} = updateCartContext(cartUpdated)
-    setGlobalCartCount(itemsInCart);
+    // const {itemsInCart} = updateCartContext(cartUpdated)
+    // setGlobalCartCount(itemsInCart);
   };
 
   const onSelection = (model, index) => {

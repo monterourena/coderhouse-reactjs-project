@@ -27,7 +27,6 @@ function GlobalContextProvider({ children }) {
       const products = await getProductsFromFirestore();
       const categories = await getCategoriesFromFirestore();
       const models = await getModelsFromFirestore();
-      console.warn("FETCHING DATABASE")
       setGlobalCategories(categories)
       setGlobalProducts(products);
       setGlobalModels(models)
@@ -35,8 +34,8 @@ function GlobalContextProvider({ children }) {
   },[])  
 
   useEffect(()=>{
-    if(globalCategories !== []) setLoadingGlobalCategories(false)
-    if(globalProducts !== []) setLoadingGlobalProducts(false)
+    if(!!globalCategories.length) setLoadingGlobalCategories(false)
+    if(!!globalProducts.length) setLoadingGlobalProducts(false)
   },[globalCategories, globalProducts])
 
 
