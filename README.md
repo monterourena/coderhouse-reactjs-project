@@ -64,8 +64,23 @@ The folder structure for this project is as follows:
 We encourage you to take a look at the website at [apple.monterourena.com](http://apple.monterourena.com) and explore its features. 
 
 # External dependencies
-- **react-hook-form**: react-hook-form is a powerful library for handling form validation in React applications. It provides a flexible and efficient way to handle validation, allowing developers to build complex forms with ease while still maintaining high performance.
-- **react-toastify**:  Utilizing React-Toastify in a project is essential for providing users with clear and concise notifications, enhancing the user experience, and improving the overall usability of the application. By incorporating this library, developers can easily implement and customize toast notifications, ensuring that important information is effectively communicated to users in a visually appealing and non-intrusive manner.
+- **Firebase (Version: 9.21.0):**
+Firebase is a popular platform provided by Google that offers various services and tools for building web and mobile applications. In this project, we utilized the Firebase library, which is used for integrating Firebase services into the React application. This library provides functionalities such as authentication, real-time database, cloud storage, and more.
+
+- **React (Version: 18.2.0):**
+React is a JavaScript library for building user interfaces. It allows you to create reusable UI components and efficiently manage the application state. React is the foundation of this project. We utilized React for creating the user interface and managing the application's component-based structure. React provides features like virtual DOM, component lifecycle methods, and JSX syntax, which simplify the development process.
+
+- **React DOM (Version: 18.2.0):**
+React DOM is a package that serves as the entry point to the DOM and is responsible for rendering React components into the browser. React DOM is used in conjunction with React to render your React components into the browser's DOM (Document Object Model). It facilitates the rendering, updating, and manipulation of the component tree within the browser.
+
+- **React Hook Form (Version: 7.43.9):**
+React Hook Form is a library that simplifies the process of working with forms in React by providing hooks and utilities for form validation, state management, and input handling. React Hook Form was used in this project to handle form submission, validation, and managing form state. It offers a straightforward and declarative approach to form handling, allowing us to easily validate user input and handle form submission logic.
+
+- **React Router DOM (Version: 6.10.0):**
+React Router DOM is a library that provides declarative routing capabilities for React applications. It enables you to define and manage different routes within our application. React Router DOM is used in your project to handle client-side routing. It allows you to define routes, map them to specific components, and navigate between different views or pages of your application without full page reloads.
+
+- **React Toastify (Version: 9.1.2):**
+React Toastify is a library that provides a simple and customizable way to display toast notifications in React applications. React Toastify was utilized in your project to show toast notifications to users. Toast notifications are non-intrusive messages that appear briefly to provide feedback or alerts. This library simplifies the process of creating and displaying such notifications, allowing you to customize their appearance and behavior.
 
 # Deployment
 This e-commerce website has been deployed and is available to view at [apple.monterourena.com](http://apple.monterourena.com). The website is hosted on [Vercel](http://www.vercel.com) and can be accessed at any time.
