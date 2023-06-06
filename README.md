@@ -3,7 +3,13 @@ This is an e-commerce website built completely from scratch using React JS and a
 
 ![68shots_so](https://github.com/monterourena/coderhouse-reactjs-project/assets/117543842/b7bdd777-0cb3-4821-bfe1-aa4714aec002)
 
-
+# Getting Started - Installation
+To get started with this e-commerce website, follow these steps:
+- Clone the repository onto your local machine.
+- Install all dependencies by running the following command: **npm install**.
+- Create a Firebase account if you don't have one already and create a new project.
+- Add the Firebase config details as environment variables. An example of the environment variables used can be seen in the .env.example file
+- Run the following command to start the development server: **npm run dev**.
 
 # Features
 This e-commerce website has the following features:
@@ -21,14 +27,6 @@ This e-commerce website has been built using the following technologies:
 - Vite for fast development and building of the application
 - Firestore database for storing product information
 - Vanilla CSS used for styling
-
-# Getting Started
-To get started with this e-commerce website, follow these steps:
-- Clone the repository onto your local machine.
-- Install all dependencies by running the following command: **npm install**.
-- Create a Firebase account if you don't have one already and create a new project.
-- Add the Firebase config details as environment variables. An example of the environment variables used can be seen in the .env.example file
-- Run the following command to start the development server: **npm run dev**.
 
 # Folder Structure
 The folder structure for this project is as follows:
