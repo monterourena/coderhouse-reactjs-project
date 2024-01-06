@@ -81,7 +81,7 @@ React Router DOM is a library that provides declarative routing capabilities for
 React Toastify is a library that provides a simple and customizable way to display toast notifications in React applications. React Toastify was utilized in your project to show toast notifications to users. Toast notifications are non-intrusive messages that appear briefly to provide feedback or alerts. This library simplifies the process of creating and displaying such notifications, allowing you to customize their appearance and behavior.
 
 # Deployment
-This e-commerce website has been deployed and is available to view at [apple.monterourena.com](http://apple.monterourena.com). The website is hosted on [Vercel](http://www.vercel.com) and can be accessed at any time.
+This e-commerce website has been deployed and is available to view [here](http://apple.monterourena.com](https://coderhouse-reactjs-project-ge2fvkbvh-monterourena.vercel.app/)). The website is hosted on [Vercel](http://www.vercel.com) and can be accessed at any time.
 
 If you have any questions or feedback, please don't hesitate to contact us. Thank you for visiting our e-commerce website!
 
